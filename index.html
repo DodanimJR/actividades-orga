@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actividades Interactivas — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="assets/estilo-base.css">
+<style>
+  .grid-tarjetas {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .tarjeta {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 5px solid var(--azul);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .tarjeta:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+  .tarjeta.deshabilitada {
+    border-top-color: #c7ccd4;
+    opacity: 0.7;
+    cursor: default;
+  }
+  .tarjeta.deshabilitada:hover { transform: none; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+  .tarjeta .semana-num {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--azul);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tarjeta .titulo-actividad {
+    font-size: 1.15rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tarjeta .tema {
+    color: var(--gris);
+    font-size: 0.9rem;
+  }
+  .tarjeta .motor {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--azul-claro);
+    color: var(--azul);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <h1>
+    <svg class="icono-chip" viewBox="0 0 40 40" fill="none" stroke="currentColor">
+      <rect x="10" y="10" width="20" height="20" rx="3" stroke-width="2.5"/>
+      <line x1="14" y1="4" x2="14" y2="10" stroke-width="2.5"/>
+      <line x1="20" y1="4" x2="20" y2="10" stroke-width="2.5"/>
+      <line x1="26" y1="4" x2="26" y2="10" stroke-width="2.5"/>
+      <line x1="14" y1="30" x2="14" y2="36" stroke-width="2.5"/>
+      <line x1="20" y1="30" x2="20" y2="36" stroke-width="2.5"/>
+      <line x1="26" y1="30" x2="26" y2="36" stroke-width="2.5"/>
+      <line x1="4" y1="14" x2="10" y2="14" stroke-width="2.5"/>
+      <line x1="4" y1="20" x2="10" y2="20" stroke-width="2.5"/>
+      <line x1="4" y1="26" x2="10" y2="26" stroke-width="2.5"/>
+      <line x1="30" y1="14" x2="36" y2="14" stroke-width="2.5"/>
+      <line x1="30" y1="20" x2="36" y2="20" stroke-width="2.5"/>
+      <line x1="30" y1="26" x2="36" y2="26" stroke-width="2.5"/>
+    </svg>
+    Actividades Interactivas
+  </h1>
+  <p>Organización Computacional (IS-237) — Ciclo III-2026 — Ing. Patrick Dodanim Castillo Flores</p>
+</header>
+
+<div class="instrucciones">
+  Una actividad interactiva individual por semana, para repasar el tema visto en clase. Cada estudiante la resuelve
+  en su propio dispositivo (computadora, tablet o celular), sin necesidad de instalar nada.
+</div>
+
+<div class="grid-tarjetas">
+
+  <a class="tarjeta" href="semana-01/index.html">
+    <span class="semana-num">Semana 1</span>
+    <span class="titulo-actividad">🖥️ Arma la Computadora</span>
+    <span class="tema">Repaso de Arquitectura de Computadoras (modelo de von Neumann)</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-02/index.html">
+    <span class="semana-num">Semana 2</span>
+    <span class="titulo-actividad">🔢 Empareja los Valores</span>
+    <span class="tema">Representaciones numéricas y complemento a 2</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-03/index.html">
+    <span class="semana-num">Semana 3</span>
+    <span class="titulo-actividad">🔀 Clasifica: Transmisión y Memoria</span>
+    <span class="tema">Circuitos digitales, transmisión serie/paralelo, memoria</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-04/index.html">
+    <span class="semana-num">Semana 4</span>
+    <span class="titulo-actividad">❓ Reto de Conversión</span>
+    <span class="tema">Conversión de bases, código Gray, ASCII y paridad</span>
+    <span class="motor">Quiz</span>
+  </a>
+
+  <div class="tarjeta deshabilitada">
+    <span class="semana-num">Semana 5</span>
+    <span class="titulo-actividad">📝 Primer Examen Parcial</span>
+    <span class="tema">Sin actividad interactiva — use la guía de repaso (Semana_05_Estudiante)</span>
+  </div>
+
+  <a class="tarjeta" href="semana-06/index.html">
+    <span class="semana-num">Semana 6</span>
+    <span class="titulo-actividad">📐 Empareja el Teorema</span>
+    <span class="tema">Constantes y variables booleanas, teoremas, tablas de verdad</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-07/index.html">
+    <span class="semana-num">Semana 7</span>
+    <span class="titulo-actividad">🔌 Simulador de Compuertas</span>
+    <span class="tema">Compuertas OR, AND y NOT en vivo</span>
+    <span class="motor">Simulador</span>
+  </a>
+
+  <a class="tarjeta" href="semana-08/index.html">
+    <span class="semana-num">Semana 8</span>
+    <span class="titulo-actividad">🔁 Empareja DeMorgan</span>
+    <span class="tema">Teoremas de DeMorgan, universalidad NAND/NOR</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-09/index.html">
+    <span class="semana-num">Semana 9</span>
+    <span class="titulo-actividad">🃏 Memorama de Símbolos</span>
+    <span class="tema">Símbolos estándar IEEE/ANSI</span>
+    <span class="motor">Memorama</span>
+  </a>
+
+  <a class="tarjeta" href="semana-10/index.html">
+    <span class="semana-num">Semana 10</span>
+    <span class="titulo-actividad">➕ Arma la Expresión SOP</span>
+    <span class="tema">Forma de suma de productos, simplificación algebraica</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-11/index.html">
+    <span class="semana-num">Semana 11</span>
+    <span class="titulo-actividad">🗺️ Agrupa en Karnaugh</span>
+    <span class="tema">Mapas de Karnaugh, generador/comprobador de paridad</span>
+    <span class="motor">Emparejar</span>
+  </a>
+
+  <a class="tarjeta" href="semana-12/index.html">
+    <span class="semana-num">Semana 12</span>
+    <span class="titulo-actividad">🔐 Simulador de Enable</span>
+    <span class="tema">Circuitos de habilitación/deshabilitación</span>
+    <span class="motor">Simulador</span>
+  </a>
+
+  <a class="tarjeta" href="semana-13/index.html">
+    <span class="semana-num">Semana 13</span>
+    <span class="titulo-actividad">🏆 Repaso General — Trivia</span>
+    <span class="tema">Dispositivos lógicos programables y repaso del curso</span>
+    <span class="motor">Quiz</span>
+  </a>
+
+  <div class="tarjeta deshabilitada">
+    <span class="semana-num">Semana 14</span>
+    <span class="titulo-actividad">🎤 Presentación de Proyectos</span>
+    <span class="tema">Sin actividad interactiva — use la Rúbrica de Proyecto Grupal</span>
+  </div>
+
+  <div class="tarjeta deshabilitada">
+    <span class="semana-num">Semana 15</span>
+    <span class="titulo-actividad">📝 Segundo Examen Parcial</span>
+    <span class="tema">Sin actividad interactiva — use la guía de repaso (Semana_15_Estudiante)</span>
+  </div>
+
+</div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Escuela de Ingeniería en Sistemas</footer>
+
+</body>
+</html>
