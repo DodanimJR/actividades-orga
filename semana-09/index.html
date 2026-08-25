@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 9 — Memorama de Símbolos | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-memorama.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🃏 Memorama de Símbolos IEEE/ANSI</h1>
+  <p>Organización Computacional (IS-237) — Semana 9 — Compuertas lógicas y álgebra booleana (parte 4)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> voltee dos cartas por turno. Encuentre la pareja entre el
+  <em>símbolo</em> de cada compuerta y su <em>nombre</em>. Encuentre las 6 parejas con el menor número de intentos.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-memorama.js"></script>
+<script>
+  const svgAND = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M8 6 L30 6 A17 17 0 0 1 30 34 L8 34 Z" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+  const svgOR = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M6 6 Q20 20 6 34 Q34 30 48 20 Q34 10 6 6 Z" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+  const svgNOT = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M6 6 L6 34 L34 20 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="40" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+  const svgNAND = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M8 6 L28 6 A17 17 0 0 1 28 34 L8 34 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="52" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+  const svgNOR = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M4 6 Q18 20 4 34 Q32 30 46 20 Q32 10 4 6 Z" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="52" cy="20" r="5" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+  const svgXOR = `<svg width="46" height="34" viewBox="0 0 60 40"><path d="M0 6 Q12 20 0 34" fill="none" stroke="currentColor" stroke-width="3"/><path d="M6 6 Q20 20 6 34 Q34 30 48 20 Q34 10 6 6 Z" fill="none" stroke="currentColor" stroke-width="3"/></svg>`;
+
+  IniciarMemorama({
+    contenedorId: 'app',
+    parejas: [
+      { a: 'Símbolo', b: 'AND', iconoA: svgAND, iconoB: '🏷️' },
+      { a: 'Símbolo', b: 'OR', iconoA: svgOR, iconoB: '🏷️' },
+      { a: 'Símbolo', b: 'NOT', iconoA: svgNOT, iconoB: '🏷️' },
+      { a: 'Símbolo', b: 'NAND', iconoA: svgNAND, iconoB: '🏷️' },
+      { a: 'Símbolo', b: 'NOR', iconoA: svgNOR, iconoB: '🏷️' },
+      { a: 'Símbolo', b: 'XOR', iconoA: svgXOR, iconoB: '🏷️' }
+    ]
+  });
+</script>
+</body>
+</html>

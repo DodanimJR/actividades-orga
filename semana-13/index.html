@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 13 — Repaso General (Trivia) | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-quiz.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🏆 Repaso General — Trivia del Curso</h1>
+  <p>Organización Computacional (IS-237) — Semana 13 — Dispositivos lógicos programables y repaso general</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> responda las 10 preguntas de repaso general de la Unidad 4 y de todo
+  el curso. Vea su puntaje final y su tiempo total al terminar.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-quiz.js"></script>
+<script>
+  IniciarQuiz({
+    contenedorId: 'app',
+    preguntas: [
+      { pregunta: '¿Qué significa la sigla PLD?', opciones: ['Programmable Logic Device', 'Personal Logic Design', 'Primary Logic Driver', 'Parallel Logic Data'], correcta: 0 },
+      { pregunta: 'Mencione un ejemplo de dispositivo lógico programable.', opciones: ['FPGA', 'Disco duro', 'Monitor', 'Teclado'], correcta: 0 },
+      { pregunta: '¿Cuál de estos NO es un método para describir un circuito lógico?', opciones: ['Receta de cocina', 'Tabla de verdad', 'Mapa de Karnaugh', 'Expresión booleana'], correcta: 0 },
+      { pregunta: '¿Cuáles son las 3 operaciones booleanas fundamentales?', opciones: ['NOT, AND, OR', 'NAND, NOR, XOR', 'Suma, resta, multiplicación', 'Fetch, decode, execute'], correcta: 0 },
+      { pregunta: '¿Qué compuerta lógica es "universal" (puede construir cualquier función)?', opciones: ['NAND', 'XOR', 'Buffer', 'Half adder'], correcta: 0 },
+      { pregunta: '¿Cuál es el equivalente decimal de FF₁₆?', opciones: ['255', '256', '254', '15'], correcta: 0 },
+      { pregunta: '¿Qué unidad de la CPU realiza los cálculos y operaciones lógicas?', opciones: ['ALU', 'Unidad de Control', 'RAM', 'Bus'], correcta: 0 },
+      { pregunta: '¿Cuántos bits tiene un byte?', opciones: ['8', '4', '16', '2'], correcta: 0 },
+      { pregunta: 'El ciclo básico de ejecución de una CPU se llama:', opciones: ['Fetch - Decode - Execute', 'Start - Stop - Run', 'Input - Process - Output', 'Read - Write - Execute'], correcta: 0 },
+      { pregunta: '¿Cuál es la ventaja principal de un PLD frente a un circuito integrado de función fija?', opciones: ['Se puede reconfigurar después de fabricado', 'Siempre es más barato', 'No necesita alimentación eléctrica', 'Funciona sin programarlo'], correcta: 0 }
+    ]
+  });
+</script>
+</body>
+</html>

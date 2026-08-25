@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 2 — Empareja los Valores | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🔢 Empareja los Valores</h1>
+  <p>Organización Computacional (IS-237) — Semana 2 — Sistemas numéricos y códigos (parte 1)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> arrastre (o haga clic en) cada número binario del banco hasta la casilla
+  con la pregunta que le corresponde. Complete las 7 casillas.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 'p1', etiqueta: '00101', icono: '🔢' },
+      { id: 'p2', etiqueta: '01001', icono: '🔢' },
+      { id: 'p3', etiqueta: '01110', icono: '🔢' },
+      { id: 'p4', etiqueta: '10010', icono: '🔢' },
+      { id: 'p5', etiqueta: '10111', icono: '🔢' },
+      { id: 'p6', etiqueta: '11110', icono: '🔢' },
+      { id: 'p7', etiqueta: '11101', icono: '🔢' }
+    ],
+    slots: [
+      { correcto: 'p1', pista: '¿Cuál es el equivalente binario (5 bits) de 5?' },
+      { correcto: 'p2', pista: '¿Cuál es el equivalente binario (5 bits) de 9?' },
+      { correcto: 'p3', pista: '¿Cuál es el equivalente binario (5 bits) de 14?' },
+      { correcto: 'p4', pista: '¿Cuál es el equivalente binario (5 bits) de 18?' },
+      { correcto: 'p5', pista: '¿Cuál es el equivalente binario (5 bits) de 23?' },
+      { correcto: 'p6', pista: '¿Cuál es el equivalente binario (5 bits) de 30?' },
+      { correcto: 'p7', pista: '¿Cuál es el equivalente en complemento a 2 (5 bits) de −3?' }
+    ]
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 7 — Simulador de Compuertas | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-simulador.css">
+<style>
+  h2.sm-titulo-seccion { text-align:center; color: var(--azul); margin-top: 40px; }
+</style>
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🔌 Simulador de Compuertas en Vivo</h1>
+  <p>Organización Computacional (IS-237) — Semana 7 — Compuertas lógicas y álgebra booleana (parte 2)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> mueva los interruptores de entrada (A y B) y observe cómo cambia la
+  salida (el foco) según la compuerta. Use el botón "Probar todas las combinaciones" para ver la tabla de verdad completa
+  en acción. Explore las 3 compuertas: AND, OR y NOT.
+</div>
+
+<h2 class="sm-titulo-seccion">Compuerta AND</h2>
+<div id="app-and"></div>
+
+<h2 class="sm-titulo-seccion">Compuerta OR</h2>
+<div id="app-or"></div>
+
+<h2 class="sm-titulo-seccion">Compuerta NOT</h2>
+<div id="app-not"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-simulador.js"></script>
+<script>
+  IniciarSimulador({
+    contenedorId: 'app-and',
+    tipo: 'AND',
+    numEntradas: 2,
+    funcion: (a, b) => (a && b) ? 1 : 0
+  });
+  IniciarSimulador({
+    contenedorId: 'app-or',
+    tipo: 'OR',
+    numEntradas: 2,
+    funcion: (a, b) => (a || b) ? 1 : 0
+  });
+  IniciarSimulador({
+    contenedorId: 'app-not',
+    tipo: 'NOT',
+    numEntradas: 1,
+    etiquetasEntradas: ['A'],
+    funcion: (a) => a ? 0 : 1
+  });
+</script>
+</body>
+</html>

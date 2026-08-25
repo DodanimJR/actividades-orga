@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 4 — Reto de Conversión | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-quiz.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>❓ Reto de Conversión</h1>
+  <p>Organización Computacional (IS-237) — Semana 4 — Conversión de bases, Gray, ASCII y paridad</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> responda las 10 preguntas de opción múltiple. Vea su puntaje final
+  y su tiempo total al terminar.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-quiz.js"></script>
+<script>
+  IniciarQuiz({
+    contenedorId: 'app',
+    preguntas: [
+      { pregunta: 'Convierta 101101₂ a decimal.', opciones: ['45', '43', '53', '37'], correcta: 0 },
+      { pregunta: 'Convierta 45 (decimal) a binario.', opciones: ['101101', '101110', '110101', '100101'], correcta: 0 },
+      { pregunta: '¿Cuál es el equivalente hexadecimal de 10110101₂?', opciones: ['B5', 'A5', 'C5', 'B4'], correcta: 0 },
+      { pregunta: 'Convierta 2F₁₆ a decimal.', opciones: ['47', '45', '52', '31'], correcta: 0 },
+      { pregunta: '¿Cuántos símbolos usa el sistema hexadecimal?', opciones: ['10', '16', '8', '2'], correcta: 1 },
+      { pregunta: 'En el código Gray, dos valores decimales consecutivos difieren en:', opciones: ['un solo bit', 'dos bits', 'todos los bits', 'ningún bit'], correcta: 0 },
+      { pregunta: 'Convierta 1011₂ a código Gray (regla binario→Gray).', opciones: ['1110', '1101', '1011', '0110'], correcta: 0 },
+      { pregunta: '¿Cuál es el código ASCII decimal de la letra mayúscula \'A\'?', opciones: ['65', '97', '48', '32'], correcta: 0 },
+      { pregunta: 'Para el dato 1011000 (4 unos), el bit de paridad PAR debe ser:', opciones: ['0', '1', '2', 'Depende del receptor'], correcta: 0 },
+      { pregunta: '¿Qué NO puede detectar un bit de paridad simple?', opciones: ['Un error de 2 bits simultáneos', 'Un error de 1 bit', 'Ningún error', 'Todos los errores'], correcta: 0 }
+    ]
+  });
+</script>
+</body>
+</html>

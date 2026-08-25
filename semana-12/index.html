@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 12 — Simulador de Enable | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-simulador.css">
+<style>
+  h2.sm-titulo-seccion { text-align:center; color: var(--azul); margin-top: 40px; }
+</style>
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🔐 Simulador de Circuitos con Enable</h1>
+  <p>Organización Computacional (IS-237) — Semana 12 — Circuitos lógicos combinacionales (parte 3)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> el circuito de habilitación deja pasar el <em>Dato</em> a la salida
+  solo cuando la señal de <em>Enable</em> está activa (1). Mueva ambos interruptores y observe la salida.
+  El segundo simulador muestra un circuito con <strong>dos</strong> señales de habilitación (E1 y E2): la salida
+  solo pasa si ambas están activas.
+</div>
+
+<h2 class="sm-titulo-seccion">Circuito con una señal de Enable</h2>
+<div id="app-1"></div>
+
+<h2 class="sm-titulo-seccion">Circuito con dos señales de Enable (E1 y E2)</h2>
+<div id="app-2"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-simulador.js"></script>
+<script>
+  IniciarSimulador({
+    contenedorId: 'app-1',
+    tipo: 'ENABLE',
+    nombreMostrar: 'Enable (1 señal)',
+    numEntradas: 2,
+    etiquetasEntradas: ['Dato', 'Enable'],
+    funcion: (dato, enable) => (dato && enable) ? 1 : 0
+  });
+
+  // Para el circuito de 2 señales de enable simulamos 3 entradas manualmente
+  IniciarSimulador({
+    contenedorId: 'app-2',
+    tipo: 'AND',
+    nombreMostrar: 'Enable (2 señales: Dato AND E1 AND E2)',
+    numEntradas: 3,
+    etiquetasEntradas: ['Dato', 'E1', 'E2'],
+    funcion: (dato, e1, e2) => (dato && e1 && e2) ? 1 : 0
+  });
+</script>
+</body>
+</html>

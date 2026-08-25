@@ -1,0 +1,86 @@
+/* ===========================================================
+   ESTILOS: MOTOR EMPAREJAR
+   =========================================================== */
+
+.banco-titulo {
+  text-align: center;
+  font-weight: bold;
+  color: var(--azul);
+  margin: 10px 0 6px 0;
+}
+
+.ep-banco {
+  max-width: 860px;
+  margin: 0 auto 30px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  min-height: 60px;
+  padding: 16px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.ep-pieza {
+  background: var(--azul);
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: grab;
+  font-weight: bold;
+  user-select: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 130px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.ep-pieza:active { cursor: grabbing; }
+.ep-pieza:hover { transform: translateY(-3px); box-shadow: 0 4px 8px rgba(0,0,0,0.25); }
+.ep-pieza.seleccionada { outline: 3px solid var(--amarillo); transform: scale(1.05); }
+
+.ep-icono { font-size: 1.6rem; line-height: 1; }
+
+.ep-tablero {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.ep-slot {
+  background: white;
+  border: 3px dashed #b0b7c3;
+  border-radius: 10px;
+  padding: 14px 10px;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.ep-slot.correcta {
+  border: 3px solid var(--verde);
+  background: var(--verde-claro);
+  color: var(--verde);
+  font-weight: bold;
+}
+
+.ep-slot.incorrecta {
+  animation: shake 0.4s;
+  border-color: var(--rojo);
+  background: var(--rojo-claro);
+}

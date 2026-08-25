@@ -1,0 +1,17 @@
+/* ===========================================================
+   ESTILOS: MOTOR QUIZ
+   =========================================================== */
+
+.qz-caja {
+  max-width: 640px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+
+.qz-pregunta {
+  color: var(--azul);
+  margin-top: 0;
+}

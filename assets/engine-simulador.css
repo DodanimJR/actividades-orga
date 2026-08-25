@@ -1,0 +1,88 @@
+/* ===========================================================
+   ESTILOS: MOTOR SIMULADOR DE COMPUERTAS
+   =========================================================== */
+
+.sm-circuito {
+  max-width: 860px;
+  margin: 0 auto 20px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.sm-entradas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sm-switch {
+  background: var(--gris);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  min-width: 90px;
+  transition: background 0.2s, transform 0.1s;
+}
+.sm-switch:hover { transform: scale(1.04); }
+.sm-switch.on { background: var(--verde); }
+
+.sm-compuerta {
+  width: 100px;
+  height: 90px;
+  color: var(--azul);
+}
+
+.sm-salida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.sm-foco {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ccc;
+  box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.sm-foco.encendido {
+  background: var(--amarillo);
+  box-shadow: 0 0 20px 6px rgba(255, 193, 7, 0.7);
+}
+
+.sm-valor-salida { font-weight: bold; }
+
+.sm-tabla {
+  max-width: 400px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  width: 100%;
+}
+
+.sm-tabla th, .sm-tabla td {
+  border: 1px solid #e2e5eb;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.sm-tabla th { background: var(--azul-claro); color: var(--azul); }
+
+.sm-fila-actual { background: var(--verde-claro); }

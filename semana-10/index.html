@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 10 — Arma la Expresión SOP | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>➕ Arma la Expresión SOP</h1>
+  <p>Organización Computacional (IS-237) — Semana 10 — Circuitos lógicos combinacionales (parte 1)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> cada casilla muestra una combinación de A, B y C donde la función vale 1.
+  Arrastre (o haga clic en) el minitérmino (producto) que le corresponde. Recuerde: si la variable vale 0, se usa su
+  complemento (ej. A=0 → A').
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 't1', etiqueta: "A'B'C", icono: '➕' },
+      { id: 't2', etiqueta: "A'BC", icono: '➕' },
+      { id: 't3', etiqueta: "AB'C'", icono: '➕' },
+      { id: 't4', etiqueta: "AB'C", icono: '➕' },
+      { id: 't5', etiqueta: "ABC'", icono: '➕' },
+      { id: 't6', etiqueta: 'ABC', icono: '➕' }
+    ],
+    slots: [
+      { correcto: 't1', pista: 'Fila: A=0, B=0, C=1 (F=1)' },
+      { correcto: 't2', pista: 'Fila: A=0, B=1, C=1 (F=1)' },
+      { correcto: 't3', pista: 'Fila: A=1, B=0, C=0 (F=1)' },
+      { correcto: 't4', pista: 'Fila: A=1, B=0, C=1 (F=1)' },
+      { correcto: 't5', pista: 'Fila: A=1, B=1, C=0 (F=1)' },
+      { correcto: 't6', pista: 'Fila: A=1, B=1, C=1 (F=1)' }
+    ]
+  });
+</script>
+</body>
+</html>

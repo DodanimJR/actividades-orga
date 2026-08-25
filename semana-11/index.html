@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 11 — Agrupa en el Mapa de Karnaugh | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🗺️ Agrupa en el Mapa de Karnaugh</h1>
+  <p>Organización Computacional (IS-237) — Semana 11 — Circuitos lógicos combinacionales (parte 2)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> cada casilla indica dos minitérminos adyacentes de un mapa de Karnaugh
+  de 3 variables (A, B, C). Arrastre (o haga clic en) el término simplificado que resulta de agruparlos (recuerde:
+  la variable que cambia entre los dos minitérminos se elimina).
+  <br><br>
+  <em>Referencia — minitérminos: m0=A'B'C', m1=A'B'C, m2=A'BC', m3=A'BC, m4=AB'C', m5=AB'C, m6=ABC', m7=ABC.</em>
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 'g1', etiqueta: "A'B'", icono: '🗺️' },
+      { id: 'g2', etiqueta: "A'B", icono: '🗺️' },
+      { id: 'g3', etiqueta: "AB'", icono: '🗺️' },
+      { id: 'g4', etiqueta: 'AB', icono: '🗺️' },
+      { id: 'g5', etiqueta: "B'C'", icono: '🗺️' },
+      { id: 'g6', etiqueta: "B'C", icono: '🗺️' }
+    ],
+    slots: [
+      { correcto: 'g1', pista: 'Agrupe m0 y m1' },
+      { correcto: 'g2', pista: 'Agrupe m2 y m3' },
+      { correcto: 'g3', pista: 'Agrupe m4 y m5' },
+      { correcto: 'g4', pista: 'Agrupe m6 y m7' },
+      { correcto: 'g5', pista: 'Agrupe m0 y m4' },
+      { correcto: 'g6', pista: 'Agrupe m1 y m5' }
+    ]
+  });
+</script>
+</body>
+</html>

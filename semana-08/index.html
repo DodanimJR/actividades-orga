@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 8 — Empareja DeMorgan | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🔁 Empareja DeMorgan y NAND/NOR</h1>
+  <p>Organización Computacional (IS-237) — Semana 8 — Compuertas lógicas y álgebra booleana (parte 3)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> arrastre (o haga clic en) cada expresión equivalente hasta la casilla
+  con la expresión original que le corresponde. Complete las 6 casillas.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 'e1', etiqueta: "A' + B'", icono: '🔁' },
+      { id: 'e2', etiqueta: "A' · B'", icono: '🔁' },
+      { id: 'e3', etiqueta: 'A · B', icono: '🔁' },
+      { id: 'e4', etiqueta: 'A + B', icono: '🔁' },
+      { id: 'e5', etiqueta: "A' (usando NAND)", icono: '🔁' },
+      { id: 'e6', etiqueta: 'A · B (usando solo NAND)', icono: '🔁' }
+    ],
+    slots: [
+      { correcto: 'e1', pista: "¿Cuál es el equivalente de (A · B)' según DeMorgan?" },
+      { correcto: 'e2', pista: "¿Cuál es el equivalente de (A + B)' según DeMorgan?" },
+      { correcto: 'e3', pista: "¿Cuál es el equivalente de (A' + B')' según DeMorgan?" },
+      { correcto: 'e4', pista: "¿Cuál es el equivalente de (A' · B')' según DeMorgan?" },
+      { correcto: 'e5', pista: '¿Qué representa NAND(A, A)?' },
+      { correcto: 'e6', pista: '¿Qué representa NAND( NAND(A,B), NAND(A,B) )?' }
+    ]
+  });
+</script>
+</body>
+</html>

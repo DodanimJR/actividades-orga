@@ -1,0 +1,154 @@
+/* ===========================================================
+   ESTILO BASE COMPARTIDO — Actividades Web IS-237
+   Organización Computacional (Ciclo III-2026)
+   =========================================================== */
+
+:root {
+  --azul: #1d4e89;
+  --azul-osc: #163d69;
+  --azul-claro: #d9e2f3;
+  --verde: #2e8b57;
+  --verde-claro: #e6f7ec;
+  --rojo: #c0392b;
+  --rojo-claro: #fdecea;
+  --amarillo: #ffc107;
+  --gris: #6c757d;
+  --fondo: #f4f7fb;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--fondo);
+  margin: 0;
+  padding: 20px;
+  color: #222;
+}
+
+.contenedor {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+header.cabecera {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header.cabecera h1 {
+  color: var(--azul);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.6rem;
+}
+
+header.cabecera p {
+  color: var(--gris);
+  margin: 2px 0;
+}
+
+.volver {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--azul);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.volver:hover { text-decoration: underline; }
+
+.instrucciones {
+  max-width: 860px;
+  margin: 0 auto 25px auto;
+  background: white;
+  border-left: 6px solid var(--azul);
+  padding: 14px 18px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.panel-control {
+  max-width: 860px;
+  margin: 0 auto 25px auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.marcador {
+  font-size: 1.05rem;
+  font-weight: bold;
+}
+.marcador span { color: var(--azul); }
+
+button {
+  background: var(--azul);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover { background: var(--azul-osc); }
+
+button.secundario { background: var(--gris); }
+button.secundario:hover { background: #55595d; }
+
+button.opcion {
+  background: white;
+  color: #222;
+  border: 2px solid #d0d5dd;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+}
+button.opcion:hover { border-color: var(--azul); background: var(--azul-claro); }
+button.opcion.correcta { border-color: var(--verde); background: var(--verde-claro); color: var(--verde); font-weight: bold; }
+button.opcion.incorrecta { border-color: var(--rojo); background: var(--rojo-claro); color: var(--rojo); font-weight: bold; }
+button.opcion:disabled { cursor: default; }
+
+.mensaje-final {
+  display: none;
+  max-width: 860px;
+  margin: 20px auto 0 auto;
+  background: var(--verde-claro);
+  border: 2px solid var(--verde);
+  color: var(--verde);
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+footer.pie {
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.8rem;
+  margin-top: 40px;
+}
+
+.icono-chip {
+  width: 34px;
+  height: 34px;
+  color: var(--azul);
+  flex-shrink: 0;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  75% { transform: translateX(6px); }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 6 — Empareja el Teorema | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📐 Empareja el Teorema Booleano</h1>
+  <p>Organización Computacional (IS-237) — Semana 6 — Compuertas lógicas y álgebra booleana (parte 1)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> arrastre (o haga clic en) cada fórmula booleana hasta el nombre del
+  teorema al que corresponde. Complete las 6 casillas.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 'identidad', etiqueta: 'A + 0 = A', icono: '📏' },
+      { id: 'nulidad', etiqueta: 'A + 1 = 1', icono: '📏' },
+      { id: 'idempotencia', etiqueta: 'A + A = A', icono: '📏' },
+      { id: 'complemento', etiqueta: "A + A' = 1", icono: '📏' },
+      { id: 'doblenegacion', etiqueta: "(A')' = A", icono: '📏' },
+      { id: 'absorcion', etiqueta: 'A + A·B = A', icono: '📏' }
+    ],
+    slots: [
+      { correcto: 'identidad', pista: 'Teorema de Identidad' },
+      { correcto: 'nulidad', pista: 'Teorema de Nulidad' },
+      { correcto: 'idempotencia', pista: 'Teorema de Idempotencia' },
+      { correcto: 'complemento', pista: 'Teorema de Complemento' },
+      { correcto: 'doblenegacion', pista: 'Teorema de Doble Negación' },
+      { correcto: 'absorcion', pista: 'Teorema de Absorción' }
+    ]
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semana 3 — Clasifica: Transmisión y Memoria | Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-emparejar.css">
+</head>
+<body>
+<a class="volver" href="../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>🔀 Clasifica: Transmisión y Memoria</h1>
+  <p>Organización Computacional (IS-237) — Semana 3 — Sistemas numéricos y códigos (parte 2)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones (individual):</strong> arrastre (o haga clic en) cada concepto hasta la descripción correcta
+  sobre transmisión de datos y tipos de memoria. Complete las 6 casillas.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Actividad de repaso — Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/engine-emparejar.js"></script>
+<script>
+  IniciarEmparejar({
+    contenedorId: 'app',
+    piezas: [
+      { id: 'usb', etiqueta: 'USB / Ethernet', icono: '🔌' },
+      { id: 'bus', etiqueta: 'Bus interno del CPU', icono: '🧠' },
+      { id: 'ram', etiqueta: 'RAM', icono: '💾' },
+      { id: 'rom', etiqueta: 'ROM', icono: '📀' },
+      { id: 'cache', etiqueta: 'Memoria caché', icono: '⚡' },
+      { id: 'secundaria', etiqueta: 'Disco duro / SSD', icono: '🗄️' }
+    ],
+    slots: [
+      { correcto: 'usb', pista: 'Transmisión en serie: económica y confiable en distancias largas' },
+      { correcto: 'bus', pista: 'Transmisión en paralelo: rápida, usada en distancias cortas' },
+      { correcto: 'ram', pista: 'Memoria volátil de acceso directo del procesador' },
+      { correcto: 'rom', pista: 'Memoria no volátil: conserva su contenido sin energía' },
+      { correcto: 'cache', pista: 'Memoria muy rápida y de poca capacidad entre el CPU y la RAM' },
+      { correcto: 'secundaria', pista: 'Memoria secundaria: mayor capacidad y persistencia, menor velocidad' }
+    ]
+  });
+</script>
+</body>
+</html>
