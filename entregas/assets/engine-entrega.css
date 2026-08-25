@@ -61,3 +61,92 @@
   gap: 10px;
   margin-top: 10px;
 }
+
+/* --- Widget de clasificación interactiva --- */
+
+.ent-btn-cargar {
+  align-self: flex-start;
+  background: var(--azul-claro, #e6f0fa);
+  color: var(--azul);
+  border: 2px solid var(--azul);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.ent-btn-cargar:hover {
+  background: var(--azul);
+  color: white;
+}
+
+.ent-clasif-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px;
+  border: 2px dashed #d0d5dd;
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.ent-chip {
+  border: 2px solid var(--azul);
+  background: white;
+  color: var(--azul);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.ent-chip:hover {
+  transform: scale(1.05);
+}
+
+.ent-chip-seleccionado {
+  background: var(--azul);
+  color: white;
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+
+.ent-chip-asignado {
+  border-color: #2e8b57;
+  color: #2e8b57;
+  background: #e6f7ec;
+}
+
+.ent-clasif-categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.ent-clasif-categoria {
+  border: 2px solid var(--azul);
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 90px;
+  background: white;
+  cursor: pointer;
+}
+
+.ent-clasif-categoria h4 {
+  margin: 0 0 8px 0;
+  color: var(--azul);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.ent-clasif-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  min-height: 30px;
+}

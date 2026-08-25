@@ -8,8 +8,6 @@
 <link rel="stylesheet" href="../assets/engine-entrega.css">
 </head>
 <body>
-<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
-
 <header class="cabecera">
   <h1>📝 Entrega de Ejercicios — Semana 1</h1>
   <p>Organización Computacional (IS-237) — Bienvenida y Repaso de Arquitectura de Computadoras</p>
@@ -31,8 +29,8 @@
     contenedorId: 'app',
     semana: 'Semana 1',
     preguntas: [
-      { id: 'lluvia_terminos', tipo: 'texto', texto: 'Lluvia de términos relámpago: escriba todos los términos que recordó del curso de Arquitectura de Computadoras (ej. CPU, RAM, ALU, bus, memoria, entrada, salida, etc.).' },
-      { id: 'clasificacion', tipo: 'texto', texto: 'Clasifique esos términos en las 4 categorías: Procesamiento, Memoria, Entrada/Salida, Comunicación (buses).' },
+      { id: 'lluvia_terminos', tipo: 'texto', texto: 'Lluvia de términos relámpago: escriba todos los términos que recordó del curso de Arquitectura de Computadoras (ej. CPU, RAM, ALU, bus, memoria, entrada, salida, etc.). Sepárelos por comas.' },
+      { id: 'clasificacion', tipo: 'clasificacion', origenId: 'lluvia_terminos', texto: 'Clasifique esos términos en las 4 categorías: Procesamiento, Memoria, Entrada/Salida, Comunicación (buses).', categorias: ['Procesamiento', 'Memoria', 'Entrada/Salida', 'Comunicación (buses)'] },
 
       { id: 'vn_uc', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 1a: nombre completo de la "UC" dentro de la CPU.' },
       { id: 'vn_alu', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 1b: nombre completo de la "ALU" dentro de la CPU.' },
@@ -41,7 +39,7 @@
       { id: 'vn_salida', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 4: nombre del bloque de dispositivos que presentan resultados.' },
       { id: 'vn_buses', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 5: nombre de los canales que interconectan los bloques anteriores.' },
 
-      { id: 'armar_resultado', tipo: 'texto', texto: 'Actividad "Arma la Computadora" (actividad web individual): indique su tiempo y sus aciertos (ej. "02:15, 6/6").' },
+      { id: 'armar_resultado', tipo: 'texto', texto: 'Actividad "Arma la Computadora" (actividad web individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-01/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-01/index.html</a>): indique su tiempo y sus aciertos (ej. "02:15, 6/6").' },
       { id: 'armar_diagrama', tipo: 'foto', texto: 'Sin ver la pantalla, dibuje de memoria el diagrama completo del modelo de von Neumann (puede adjuntar una foto de su dibujo).' },
 
       { id: 'bonus_byte', tipo: 'texto', texto: 'Ronda bonus: ¿Cuántos bits tiene un byte?' },

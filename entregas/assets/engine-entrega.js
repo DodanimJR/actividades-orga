@@ -20,11 +20,103 @@ function IniciarEntrega(config) {
           <span class="ent-ayuda">📷 Puede tomar una foto de su hoja/pantalla o subir una imagen ya guardada (opcional si ya describió su respuesta en el texto).</span>
         </div>`;
     }
+    if (p.tipo === 'clasificacion') {
+      return `
+        <div class="ent-campo ent-clasificacion" id="ent-clasif-${p.id}">
+          <label>${numero}. ${p.texto}</label>
+          <button type="button" class="ent-btn-cargar" data-target="${p.id}">🔄 Cargar mis términos de la pregunta anterior</button>
+          <span class="ent-ayuda">Haga clic en un término para seleccionarlo y luego haga clic en la categoría donde desea clasificarlo. Puede hacer clic en un término ya clasificado para devolverlo a la lista.</span>
+          <div class="ent-clasif-pool" id="ent-pool-${p.id}"></div>
+          <div class="ent-clasif-categorias" id="ent-cats-${p.id}"></div>
+          <textarea id="ent-${p.id}" rows="3" style="display:none" readonly></textarea>
+        </div>`;
+    }
     return `
       <div class="ent-campo">
         <label for="ent-${p.id}">${numero}. ${p.texto}</label>
         <textarea id="ent-${p.id}" rows="3" placeholder="Escriba su respuesta aquí"></textarea>
       </div>`;
+  }
+
+  function setupClasificacion(p) {
+    const pool = cont.querySelector('#ent-pool-' + p.id);
+    const catsContainer = cont.querySelector('#ent-cats-' + p.id);
+    const hidden = cont.querySelector('#ent-' + p.id);
+    const btnCargar = cont.querySelector('.ent-btn-cargar[data-target="' + p.id + '"]');
+
+    let terminos = [];
+    let asignaciones = {};
+    let seleccionado = null;
+
+    catsContainer.innerHTML = p.categorias.map(cat => `
+      <div class="ent-clasif-categoria" data-cat="${cat}">
+        <h4>${cat}</h4>
+        <div class="ent-clasif-lista" data-cat-lista="${cat}"></div>
+      </div>`).join('');
+
+    function actualizarHidden() {
+      const partes = Object.entries(asignaciones).map(([t, c]) => `${t} → ${c}`);
+      hidden.value = partes.length ? partes.join('; ') : '';
+    }
+
+    function renderPool() {
+      const pendientes = terminos.filter(t => !(t in asignaciones));
+      pool.innerHTML = pendientes.length
+        ? pendientes.map(t => `<button type="button" class="ent-chip${t === seleccionado ? ' ent-chip-seleccionado' : ''}" data-term="${t}">${t}</button>`).join('')
+        : '<span class="ent-ayuda">✅ Ya clasificó todos sus términos.</span>';
+    }
+
+    function renderAsignados() {
+      p.categorias.forEach(cat => {
+        const lista = catsContainer.querySelector('[data-cat-lista="' + cat + '"]');
+        const terms = Object.entries(asignaciones).filter(([, c]) => c === cat).map(([t]) => t);
+        lista.innerHTML = terms.map(t => `<button type="button" class="ent-chip ent-chip-asignado" data-term="${t}">${t} ✕</button>`).join('');
+      });
+    }
+
+    function refrescar() {
+      renderPool();
+      renderAsignados();
+      actualizarHidden();
+    }
+
+    btnCargar.addEventListener('click', () => {
+      const origenTextarea = cont.querySelector('#ent-' + p.origenId);
+      const valor = origenTextarea ? origenTextarea.value : '';
+      const nuevos = valor.split(/[,;\n]+/).map(t => t.trim()).filter(Boolean);
+      // Conserva las asignaciones de términos que sigan presentes; descarta las demás.
+      const nuevasAsignaciones = {};
+      nuevos.forEach(t => { if (t in asignaciones) nuevasAsignaciones[t] = asignaciones[t]; });
+      terminos = [...new Set(nuevos)];
+      asignaciones = nuevasAsignaciones;
+      seleccionado = null;
+      refrescar();
+    });
+
+    pool.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-term]');
+      if (!btn) return;
+      const term = btn.getAttribute('data-term');
+      seleccionado = (seleccionado === term) ? null : term;
+      renderPool();
+    });
+
+    catsContainer.addEventListener('click', (e) => {
+      const chip = e.target.closest('.ent-chip-asignado');
+      if (chip) {
+        delete asignaciones[chip.getAttribute('data-term')];
+        refrescar();
+        return;
+      }
+      const categoriaDiv = e.target.closest('.ent-clasif-categoria');
+      if (categoriaDiv && seleccionado) {
+        asignaciones[seleccionado] = categoriaDiv.getAttribute('data-cat');
+        seleccionado = null;
+        refrescar();
+      }
+    });
+
+    refrescar();
   }
 
   cont.innerHTML = `
@@ -46,6 +138,10 @@ function IniciarEntrega(config) {
   const mensaje = cont.querySelector('#ent-mensaje');
   const btnDescargar = cont.querySelector('#ent-btn-descargar');
   const btnEnviar = cont.querySelector('#ent-btn-enviar');
+
+  preguntas.forEach(p => {
+    if (p.tipo === 'clasificacion') setupClasificacion(p);
+  });
 
   function recolectarTexto() {
     let texto = `Nombre: ${cont.querySelector('#ent-nombre').value}\nSemana: ${config.semana}\nFecha: ${new Date().toLocaleString()}\n\n`;
