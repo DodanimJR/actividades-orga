@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 4 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📝 Entrega de Autoestudio — Semana 4</h1>
+  <p>Organización Computacional (IS-237) — Sin clase (feriado) — Autoestudio y repaso</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> esta semana no hubo clase (feriado de Independencia). Complete este registro de
+  autoestudio para confirmar su repaso antes del Primer Examen Parcial. Para cada tema, escriba brevemente qué repasó
+  o un ejemplo que recuerde. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 4',
+    preguntas: [
+      { id: 'chk_1', tipo: 'texto', texto: 'Repaso: diferencia entre sistemas analógicos y digitales — escriba un ejemplo o resumen breve.' },
+      { id: 'chk_2', tipo: 'texto', texto: 'Repaso: representación posicional y conversión entre bases (decimal, binaria, hexadecimal) — escriba un ejemplo.' },
+      { id: 'chk_3', tipo: 'texto', texto: 'Repaso: complemento a 1 y complemento a 2 (representación de números negativos) — escriba un ejemplo.' },
+      { id: 'chk_4', tipo: 'texto', texto: 'Repaso: bloques funcionales de una computadora digital (modelo de von Neumann) — nómbrelos.' },
+      { id: 'chk_5', tipo: 'texto', texto: 'Repaso: transmisión en serie vs. paralelo; tipos de memoria — resuma la diferencia.' },
+      { id: 'chk_6', tipo: 'texto', texto: 'Repaso: código Gray y su regla de conversión — escriba un ejemplo.' },
+      { id: 'chk_7', tipo: 'texto', texto: 'Repaso: código ASCII — escriba un ejemplo (letra y su código decimal).' },
+      { id: 'chk_8', tipo: 'texto', texto: 'Repaso: bit de paridad par e impar, y sus límites para detectar errores — resuma la idea.' },
+      { id: 'reto_conversion', tipo: 'texto', texto: 'Resultado de la actividad web "Reto de Conversión" (Semana 4): indique su puntaje y tiempo (ej. "8/10, 04:30").' },
+      { id: 'dudas', tipo: 'texto', texto: '¿Hay algún tema de las Unidades 1 o 2 en el que todavía tenga dudas antes del examen? (puede dejarlo en blanco si no)' }
+    ]
+  });
+</script>
+</body>
+</html>

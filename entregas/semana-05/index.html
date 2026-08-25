@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 5 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📝 Ticket de Preparación — Semana 5</h1>
+  <p>Organización Computacional (IS-237) — Antes del Primer Examen Parcial</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> este NO es el examen — es un breve autochequeo de qué tan preparado se siente antes
+  de entrar. Para cada tema, escriba en una palabra o frase qué tan seguro se siente (ej. "Muy seguro", "Regular",
+  "Necesito repasar más") y cualquier duda puntual. Escriba su <strong>nombre completo</strong> — es el único dato
+  que se le pide.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 5',
+    preguntas: [
+      { id: 'seg_1', tipo: 'texto', texto: 'Diferencia entre sistemas analógicos y digitales — ¿qué tan seguro se siente?' },
+      { id: 'seg_2', tipo: 'texto', texto: 'Representación posicional y conversión entre bases (decimal, binaria, hexadecimal) — ¿qué tan seguro se siente?' },
+      { id: 'seg_3', tipo: 'texto', texto: 'Complemento a 1 y complemento a 2 — ¿qué tan seguro se siente?' },
+      { id: 'seg_4', tipo: 'texto', texto: 'Bloques funcionales de una computadora digital (modelo de von Neumann) — ¿qué tan seguro se siente?' },
+      { id: 'seg_5', tipo: 'texto', texto: 'Transmisión en serie vs. paralelo; tipos de memoria — ¿qué tan seguro se siente?' },
+      { id: 'seg_6', tipo: 'texto', texto: 'Código Gray y su regla de conversión — ¿qué tan seguro se siente?' },
+      { id: 'seg_7', tipo: 'texto', texto: 'Código ASCII — ¿qué tan seguro se siente?' },
+      { id: 'seg_8', tipo: 'texto', texto: 'Bit de paridad par e impar y sus límites — ¿qué tan seguro se siente?' },
+      { id: 'tema_repasar', tipo: 'texto', texto: '¿Qué tema le gustaría repasar una vez más justo antes de entrar al examen?' }
+    ]
+  });
+</script>
+</body>
+</html>

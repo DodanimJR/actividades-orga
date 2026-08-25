@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 3 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 3</h1>
+  <p>Organización Computacional (IS-237) — Sistemas numéricos y códigos (parte 2)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> complete sus respuestas del Cuaderno de Respuestas de esta semana, incluyendo la
+  práctica de laboratorio (puede adjuntar una foto) y las dos autoevaluaciones. Escriba su
+  <strong>nombre completo</strong> — es el único dato que se le pide para identificar su entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 3',
+    preguntas: [
+      { id: 'p1_6_1', tipo: 'texto', texto: 'Investigue un estándar de comunicación en serie (ej. USB, SPI, I2C) y explique brevemente cómo transmite los bits.' },
+      { id: 'p1_7_1', tipo: 'texto', texto: 'Calcule cuántos bytes hay en 4 MiB (mebibytes) usando la definición binaria (1 MiB = 2²⁰ bytes).' },
+
+      { id: 'p2_4_1', tipo: 'texto', texto: 'Convierta 0110₂ a código Gray usando la regla de conversión binario→Gray.' },
+
+      { id: 'p2_5_1', tipo: 'texto', texto: "¿Cuál es el código ASCII decimal de la letra 'Z'? (Pista: las letras mayúsculas son consecutivas desde 'A'=65)." },
+      { id: 'p2_5_2', tipo: 'texto', texto: 'Codifique la palabra "HI" en binario ASCII de 7 bits, un byte por letra.' },
+      { id: 'p2_5_3', tipo: 'texto', texto: 'Investigue la diferencia entre ASCII y Unicode/UTF-8, y por qué surgió la necesidad de este último.' },
+
+      { id: 'p2_6_1', tipo: 'texto', texto: 'Calcule el bit de paridad par para el dato 1101101.' },
+      { id: 'p2_6_2', tipo: 'texto', texto: 'Calcule el bit de paridad impar para el dato 0000000.' },
+      { id: 'p2_6_3', tipo: 'texto', texto: 'Explique por qué la paridad no puede detectar un error de 2 bits simultáneos.' },
+
+      { id: 'lab_paridad_desc', tipo: 'texto', texto: 'Laboratorio: describa brevemente su circuito generador de paridad par para 3 bits de entrada (compuertas usadas, entradas y salida).' },
+      { id: 'lab_paridad_foto', tipo: 'foto', texto: 'Laboratorio: adjunte o describa su captura de pantalla como evidencia del circuito generador de paridad.' },
+
+      { id: 'a1_1', tipo: 'texto', texto: 'Autoevaluación U1: explique con sus propias palabras la diferencia entre una señal analógica y una digital.' },
+      { id: 'a1_2', tipo: 'texto', texto: 'Autoevaluación U1: convierta el número binario 1110₂ a decimal.' },
+      { id: 'a1_3', tipo: 'texto', texto: 'Autoevaluación U1: ¿Cuántos valores distintos se pueden representar con un byte (8 bits)?' },
+      { id: 'a1_4', tipo: 'texto', texto: 'Autoevaluación U1: represente el número −8 en complemento a 2 usando 8 bits.' },
+      { id: 'a1_5', tipo: 'texto', texto: 'Autoevaluación U1: mencione una ventaja de la transmisión serie sobre la paralela en distancias largas.' },
+      { id: 'a1_6', tipo: 'texto', texto: 'Autoevaluación U1: nombre los cinco bloques funcionales básicos de una computadora digital.' },
+
+      { id: 'a2_1', tipo: 'texto', texto: 'Autoevaluación U2: convierta 76₁₀ a binario y a hexadecimal.' },
+      { id: 'a2_2', tipo: 'texto', texto: 'Autoevaluación U2: convierta B7₁₆ a decimal.' },
+      { id: 'a2_3', tipo: 'texto', texto: 'Autoevaluación U2: convierta 1001₂ a código Gray.' },
+      { id: 'a2_4', tipo: 'texto', texto: "Autoevaluación U2: ¿cuál es el código ASCII decimal del carácter 'e'? (use una tabla ASCII de referencia)" },
+      { id: 'a2_5', tipo: 'texto', texto: 'Autoevaluación U2: calcule el bit de paridad par para el dato 1110011.' },
+      { id: 'a2_6', tipo: 'texto', texto: 'Autoevaluación U2: explique en una oración qué detecta y qué NO detecta un bit de paridad simple.' }
+    ]
+  });
+</script>
+</body>
+</html>

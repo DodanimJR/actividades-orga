@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 1 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 1</h1>
+  <p>Organización Computacional (IS-237) — Bienvenida y Repaso de Arquitectura de Computadoras</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> complete aquí las actividades trabajadas hoy en clase y envíelas al profesor con un
+  clic. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 1',
+    preguntas: [
+      { id: 'lluvia_terminos', tipo: 'texto', texto: 'Lluvia de términos relámpago: escriba todos los términos que recordó del curso de Arquitectura de Computadoras (ej. CPU, RAM, ALU, bus, memoria, entrada, salida, etc.).' },
+      { id: 'clasificacion', tipo: 'texto', texto: 'Clasifique esos términos en las 4 categorías: Procesamiento, Memoria, Entrada/Salida, Comunicación (buses).' },
+
+      { id: 'vn_uc', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 1a: nombre completo de la "UC" dentro de la CPU.' },
+      { id: 'vn_alu', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 1b: nombre completo de la "ALU" dentro de la CPU.' },
+      { id: 'vn_memoria', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 2: nombre del bloque que almacena datos e instrucciones.' },
+      { id: 'vn_entrada', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 3: nombre del bloque de dispositivos que ingresan datos.' },
+      { id: 'vn_salida', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 4: nombre del bloque de dispositivos que presentan resultados.' },
+      { id: 'vn_buses', tipo: 'texto', texto: 'Modelo de von Neumann — Bloque 5: nombre de los canales que interconectan los bloques anteriores.' },
+
+      { id: 'armar_resultado', tipo: 'texto', texto: 'Actividad "Arma la Computadora" (actividad web individual): indique su tiempo y sus aciertos (ej. "02:15, 6/6").' },
+      { id: 'armar_diagrama', tipo: 'foto', texto: 'Sin ver la pantalla, dibuje de memoria el diagrama completo del modelo de von Neumann (puede adjuntar una foto de su dibujo).' },
+
+      { id: 'bonus_byte', tipo: 'texto', texto: 'Ronda bonus: ¿Cuántos bits tiene un byte?' },
+      { id: 'bonus_binario', tipo: 'texto', texto: 'Ronda bonus: ¿Con cuántos símbolos distintos trabaja el sistema binario?' },
+      { id: 'bonus_razon', tipo: 'texto', texto: 'Ronda bonus: mencione una razón por la que las computadoras usan binario en lugar de decimal.' }
+    ]
+  });
+</script>
+</body>
+</html>
