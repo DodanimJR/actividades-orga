@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 7 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<a class="volver" href="../../index.html">← Volver al índice de actividades</a>
+
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 7</h1>
+  <p>Organización Computacional (IS-237) — Compuertas lógicas y álgebra booleana (parte 2)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> esta semana incluye ejercicios de laboratorio. Puede describir su circuito en el
+  cuadro de texto y/o adjuntar una foto de su hoja de trabajo o una captura de pantalla del simulador (CircuitVerse/Logisim).
+  Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Piloto de entregas digitales</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 7',
+    preguntas: [
+      { id: 'p3_2_1', tipo: 'foto', texto: 'Dibuje (a mano o en el simulador) el circuito de la expresión F = (A+B)·C y complete su tabla de verdad para las 8 combinaciones de A, B, C.' },
+      { id: 'lab_compuertas', tipo: 'foto', texto: 'Adjunte/describa la tabla de verdad verificada de sus compuertas AND, OR y NOT armadas en el simulador (CircuitVerse o Logisim-evolution).' }
+    ]
+  });
+</script>
+</body>
+</html>

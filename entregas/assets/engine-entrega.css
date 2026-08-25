@@ -1,0 +1,63 @@
+/* ===========================================================
+   ESTILOS: MOTOR ENTREGA
+   =========================================================== */
+
+#ent-form {
+  max-width: 860px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+
+.ent-campo {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ent-campo-nombre {
+  background: var(--azul-claro);
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 28px;
+}
+
+.ent-campo label {
+  font-weight: bold;
+  color: var(--azul);
+}
+
+.ent-campo textarea,
+.ent-campo input[type="text"] {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 10px;
+  border: 2px solid #d0d5dd;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.ent-campo textarea:focus,
+.ent-campo input[type="text"]:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+.ent-campo input[type="file"] {
+  font-size: 0.85rem;
+}
+
+.ent-ayuda {
+  font-size: 0.8rem;
+  color: var(--gris);
+}
+
+.ent-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}

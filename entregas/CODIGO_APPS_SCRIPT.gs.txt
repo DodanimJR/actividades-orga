@@ -1,0 +1,107 @@
+/**
+ * ===========================================================
+ * BACKEND — Entregas de Organización Computacional (IS-237)
+ * ===========================================================
+ * INSTRUCCIONES:
+ * 1. Crea una Hoja de Cálculo de Google nueva.
+ * 2. Extensiones -> Apps Script.
+ * 3. Borra todo el contenido de "Código.gs" y pega este archivo completo.
+ * 4. Guarda (icono de disquete).
+ * 5. Implementar -> Nueva implementación -> tipo "Aplicación web".
+ *      - Ejecutar como: Yo (tu correo)
+ *      - Quién tiene acceso: Cualquier usuario
+ * 6. Clic en "Implementar", autoriza los permisos que pida Google,
+ *    y copia la URL que termina en /exec. Esa es la URL que se usa
+ *    en assets/config.js del sitio web.
+ *
+ * Cada semana crea automáticamente su propia pestaña en la hoja
+ * (ej. "Semana 2", "Semana 7"), con una fila por estudiante.
+ * Las fotos se guardan en una carpeta de tu Google Drive llamada
+ * "Entregas - Organizacion Computacional", y en la hoja queda el
+ * enlace directo a cada foto.
+ * ===========================================================
+ */
+
+function doGet(e) {
+  return ContentService.createTextOutput(
+    "El Web App de Organización Computacional está funcionando correctamente."
+  );
+}
+
+function doPost(e) {
+  var lock = LockService.getScriptLock();
+  lock.tryLock(15000);
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var nombre = String(data.nombre || "Sin nombre").trim();
+    var semana = String(data.semana || "General").trim();
+    var respuestas = data.respuestas || {}; // { "Texto de la pregunta": "respuesta del estudiante" }
+    var fotos = data.fotos || {}; // { "Texto de la pregunta": "data:image/jpeg;base64,...." }
+
+    // 1. Guardar cada foto en Drive y agregar su enlace como una respuesta más
+    for (var pregunta in fotos) {
+      if (fotos[pregunta]) {
+        var url = guardarFoto(fotos[pregunta], pregunta, nombre, semana);
+        respuestas[pregunta + " (foto adjunta)"] = url;
+      }
+    }
+
+    // 2. Buscar o crear la pestaña de esta semana
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getSheetByName(semana);
+
+    if (!sheet) {
+      sheet = ss.insertSheet(semana);
+      var headers = ["Fecha y hora", "Nombre completo"].concat(Object.keys(respuestas));
+      sheet.appendRow(headers);
+      sheet.setFrozenRows(1);
+      sheet.getRange(1, 1, 1, headers.length).setFontWeight("bold");
+    }
+
+    // 3. Si llegan preguntas nuevas que no estaban en el encabezado, agregarlas al final
+    var ultimaColumna = sheet.getLastColumn();
+    var headerRow = sheet.getRange(1, 1, 1, ultimaColumna).getValues()[0];
+    var nuevasClaves = Object.keys(respuestas).filter(function (k) {
+      return headerRow.indexOf(k) === -1;
+    });
+    if (nuevasClaves.length > 0) {
+      sheet.getRange(1, headerRow.length + 1, 1, nuevasClaves.length).setValues([nuevasClaves]);
+      sheet.getRange(1, headerRow.length + 1, 1, nuevasClaves.length).setFontWeight("bold");
+      headerRow = headerRow.concat(nuevasClaves);
+    }
+
+    // 4. Construir y agregar la fila en el orden correcto de columnas
+    var fila = headerRow.map(function (h) {
+      if (h === "Fecha y hora") return new Date();
+      if (h === "Nombre completo") return nombre;
+      return respuestas[h] !== undefined ? respuestas[h] : "";
+    });
+    sheet.appendRow(fila);
+
+    return ContentService.createTextOutput(JSON.stringify({ ok: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+function guardarFoto(dataUrl, pregunta, nombre, semana) {
+  var folderName = "Entregas - Organizacion Computacional";
+  var folders = DriveApp.getFoldersByName(folderName);
+  var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
+
+  var match = dataUrl.match(/^data:(.*);base64,(.*)$/);
+  if (!match) return "";
+  var contentType = match[1];
+  var pureBase64 = match[2];
+  var bytes = Utilities.base64Decode(pureBase64);
+
+  var nombreArchivo = (semana + " - " + nombre + " - " + pregunta).substring(0, 120) + ".jpg";
+  var blob = Utilities.newBlob(bytes, contentType, nombreArchivo);
+  var file = folder.createFile(blob);
+  file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+  return file.getUrl();
+}
