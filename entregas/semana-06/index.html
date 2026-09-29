@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 6 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 6</h1>
+  <p>Organización Computacional (IS-237) — Compuertas lógicas y álgebra booleana (parte 1)</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> complete sus respuestas del Cuaderno de Respuestas de esta semana directamente aquí
+  y envíelas al profesor con un clic. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide
+  para identificar su entrega. Si se le corta la conexión, use el botón "Descargar respaldo" antes de cerrar la página.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Piloto de entregas digitales</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 6',
+    preguntas: [
+      { id: 'p3_1_1', tipo: 'texto', texto: 'Construya la tabla de verdad de F = A·B + A\'·C para las 8 combinaciones de A, B, C. Escriba el valor de F para cada combinación en orden (ABC = 000, 001, 010, 011, 100, 101, 110, 111), separados por comas.' },
+      { id: 'p3_1_2', tipo: 'texto', texto: 'Simplifique la expresión A·B + A·B\' usando los teoremas booleanos, mostrando cada paso y el nombre del teorema aplicado.' },
+      { id: 'p3_1_3', tipo: 'texto', texto: 'Demuestre, con tabla de verdad, que A + A\'·B = A + B.' },
+
+      { id: 'teorema_aplicado', tipo: 'texto', texto: 'En el concurso relámpago de hoy: ¿qué teorema booleano le tocó explicar a su grupo en la pizarra? Escriba el nombre del teorema y un resumen breve de cómo lo explicaron.' },
+
+      { id: 'actividad_resultado', tipo: 'texto', texto: 'Actividad web "Empareja el Teorema Booleano" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-06/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-06/index.html</a>): indique cuántos emparejó correctamente (ej. "9/9").' },
+
+      { id: 'bonus_conmutativa', tipo: 'texto', texto: 'Ronda bonus: escriba con sus propias palabras qué establece el teorema conmutativo del álgebra booleana.' },
+      { id: 'bonus_distributiva', tipo: 'texto', texto: 'Ronda bonus: dé un ejemplo con valores concretos de A, B y C (0 o 1) que compruebe el teorema distributivo A·(B+C) = A·B + A·C.' }
+    ]
+  });
+</script>
+</body>
+</html>

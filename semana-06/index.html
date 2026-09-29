@@ -17,7 +17,7 @@
 
 <div class="instrucciones">
   <strong>Instrucciones (individual):</strong> arrastre (o haga clic en) cada fórmula booleana hasta el nombre del
-  teorema al que corresponde. Complete las 6 casillas.
+  teorema al que corresponde. Complete las 9 casillas.
 </div>
 
 <div id="app"></div>
@@ -34,7 +34,10 @@
       { id: 'idempotencia', etiqueta: 'A + A = A', icono: '📏' },
       { id: 'complemento', etiqueta: "A + A' = 1", icono: '📏' },
       { id: 'doblenegacion', etiqueta: "(A')' = A", icono: '📏' },
-      { id: 'absorcion', etiqueta: 'A + A·B = A', icono: '📏' }
+      { id: 'absorcion', etiqueta: 'A + A·B = A', icono: '📏' },
+      { id: 'conmutativa', etiqueta: 'A + B = B + A', icono: '📏' },
+      { id: 'asociativa', etiqueta: '(A+B)+C = A+(B+C)', icono: '📏' },
+      { id: 'distributiva', etiqueta: 'A·(B+C) = A·B + A·C', icono: '📏' }
     ],
     slots: [
       { correcto: 'identidad', pista: 'Teorema de Identidad' },
@@ -42,7 +45,10 @@
       { correcto: 'idempotencia', pista: 'Teorema de Idempotencia' },
       { correcto: 'complemento', pista: 'Teorema de Complemento' },
       { correcto: 'doblenegacion', pista: 'Teorema de Doble Negación' },
-      { correcto: 'absorcion', pista: 'Teorema de Absorción' }
+      { correcto: 'absorcion', pista: 'Teorema de Absorción' },
+      { correcto: 'conmutativa', pista: 'Teorema Conmutativo' },
+      { correcto: 'asociativa', pista: 'Teorema Asociativo' },
+      { correcto: 'distributiva', pista: 'Teorema Distributivo' }
     ]
   });
 </script>
