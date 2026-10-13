@@ -16,9 +16,13 @@
  *
  * Cada semana crea automáticamente su propia pestaña en la hoja
  * (ej. "Semana 2", "Semana 7"), con una fila por estudiante.
- * Las fotos se guardan en una carpeta de tu Google Drive llamada
- * "Entregas - Organizacion Computacional", y en la hoja queda el
- * enlace directo a cada foto.
+ * Las fotos y archivos (JPG, PNG, DOCX, PDF) se guardan en una carpeta
+ * de tu Google Drive llamada "Entregas - Organizacion Computacional",
+ * y en la hoja queda el enlace directo a cada archivo.
+ *
+ * ACTUALIZAR UNA IMPLEMENTACIÓN EXISTENTE (sin cambiar la URL):
+ *   Implementar -> Administrar implementaciones -> lápiz (editar)
+ *   -> Versión: "Nueva versión" -> Implementar.
  * ===========================================================
  */
 
@@ -37,12 +41,14 @@ function doPost(e) {
     var semana = String(data.semana || "General").trim();
     var respuestas = data.respuestas || {}; // { "Texto de la pregunta": "respuesta del estudiante" }
     var fotos = data.fotos || {}; // { "Texto de la pregunta": "data:image/jpeg;base64,...." }
+    var nombresArchivo = data.nombresArchivo || {}; // { "clave": "nombre_original.pdf" } (opcional)
 
     // 1. Guardar cada foto en Drive y agregar su enlace como una respuesta más
     for (var pregunta in fotos) {
       if (fotos[pregunta]) {
-        var url = guardarFoto(fotos[pregunta], pregunta, nombre, semana);
-        respuestas[pregunta + " (foto adjunta)"] = url;
+        var url = guardarFoto(fotos[pregunta], pregunta, nombre, semana, nombresArchivo[pregunta]);
+        var etiqueta = /\(archivo \d+\)$/.test(pregunta) ? pregunta : pregunta + " (foto adjunta)";
+        respuestas[etiqueta] = url;
       }
     }
 
@@ -88,7 +94,7 @@ function doPost(e) {
   }
 }
 
-function guardarFoto(dataUrl, pregunta, nombre, semana) {
+function guardarFoto(dataUrl, pregunta, nombre, semana, nombreOriginal) {
   var folderName = "Entregas - Organizacion Computacional";
   var folders = DriveApp.getFoldersByName(folderName);
   var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
@@ -99,7 +105,15 @@ function guardarFoto(dataUrl, pregunta, nombre, semana) {
   var pureBase64 = match[2];
   var bytes = Utilities.base64Decode(pureBase64);
 
-  var nombreArchivo = (semana + " - " + nombre + " - " + pregunta).substring(0, 120) + ".jpg";
+  var extensiones = {
+    "image/jpeg": ".jpg",
+    "image/png": ".png",
+    "application/pdf": ".pdf",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx"
+  };
+  var ext = extensiones[contentType] || ".jpg";
+  var base = (semana + " - " + nombre + " - " + pregunta).substring(0, 100);
+  var nombreArchivo = nombreOriginal ? base + " - " + nombreOriginal : base + ext;
   var blob = Utilities.newBlob(bytes, contentType, nombreArchivo);
   var file = folder.createFile(blob);
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);

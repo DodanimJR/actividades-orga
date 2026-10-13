@@ -31,7 +31,8 @@
 }
 
 .ent-campo textarea,
-.ent-campo input[type="text"] {
+.ent-campo input[type="text"],
+.ent-campo input[type="url"] {
   font-family: inherit;
   font-size: 0.95rem;
   padding: 10px;
@@ -41,13 +42,25 @@
 }
 
 .ent-campo textarea:focus,
-.ent-campo input[type="text"]:focus {
+.ent-campo input[type="text"]:focus,
+.ent-campo input[type="url"]:focus {
   outline: none;
   border-color: var(--azul);
 }
 
 .ent-campo input[type="file"] {
   font-size: 0.85rem;
+}
+
+.ent-lista-archivos {
+  margin: 0;
+  padding-left: 4px;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.ent-lista-archivos li {
+  padding: 2px 0;
 }
 
 .ent-ayuda {

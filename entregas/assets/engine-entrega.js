@@ -8,6 +8,10 @@
 function IniciarEntrega(config) {
   const cont = document.getElementById(config.contenedorId || 'app');
   const preguntas = config.preguntas;
+  const ACEPTA_ARCHIVOS = '.jpg,.jpeg,.png,image/jpeg,image/png,.pdf,application/pdf,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+  const EXT_PERMITIDAS = ['jpg', 'jpeg', 'png', 'pdf', 'docx'];
+  const MAX_MB_ARCHIVO = 8;     // límite por archivo (PDF/DOCX; las imágenes se comprimen antes de enviar)
+  const MAX_MB_TOTAL = 30;      // límite total por envío (el Web App de Google acepta ~50 MB)
 
   function campoHTML(p, idx) {
     const numero = idx + 1;
@@ -18,6 +22,17 @@ function IniciarEntrega(config) {
           <textarea id="ent-${p.id}" rows="3" placeholder="Puede describir aquí su respuesta y/o adjuntar una foto abajo"></textarea>
           <input type="file" id="ent-${p.id}-foto" accept="image/*" capture="environment">
           <span class="ent-ayuda">📷 Puede tomar una foto de su hoja/pantalla o subir una imagen ya guardada (opcional si ya describió su respuesta en el texto).</span>
+        </div>`;
+    }
+    if (p.tipo === 'archivos') {
+      return `
+        <div class="ent-campo">
+          <label for="ent-${p.id}">${numero}. ${p.texto}</label>
+          <textarea id="ent-${p.id}" rows="3" placeholder="Escriba su respuesta aquí (opcional si adjunta archivos o un enlace)"></textarea>
+          <input type="url" id="ent-${p.id}-enlace" class="ent-enlace" placeholder="Enlace (opcional): CircuitVerse, Google Drive, OneDrive...">
+          <input type="file" id="ent-${p.id}-archivos" multiple accept="${ACEPTA_ARCHIVOS}">
+          <ul class="ent-lista-archivos" id="ent-${p.id}-lista"></ul>
+          <span class="ent-ayuda">📎 Puede adjuntar uno o varios archivos: imágenes (JPG o PNG), Word (DOCX) o PDF. Máximo ${MAX_MB_ARCHIVO} MB por archivo.</span>
         </div>`;
     }
     if (p.tipo === 'clasificacion') {
@@ -139,14 +154,47 @@ function IniciarEntrega(config) {
   const btnDescargar = cont.querySelector('#ent-btn-descargar');
   const btnEnviar = cont.querySelector('#ent-btn-enviar');
 
+  function extension(nombre) {
+    const partes = String(nombre).toLowerCase().split('.');
+    return partes.length > 1 ? partes.pop() : '';
+  }
+
+  function setupArchivos(p) {
+    const input = cont.querySelector('#ent-' + p.id + '-archivos');
+    const lista = cont.querySelector('#ent-' + p.id + '-lista');
+    input.addEventListener('change', () => {
+      const rechazados = [];
+      const validos = Array.from(input.files).filter(f => {
+        const okTipo = EXT_PERMITIDAS.indexOf(extension(f.name)) !== -1;
+        const okTam = f.size <= MAX_MB_ARCHIVO * 1024 * 1024;
+        if (!okTipo) rechazados.push(`${f.name} (tipo no permitido)`);
+        else if (!okTam) rechazados.push(`${f.name} (pesa más de ${MAX_MB_ARCHIVO} MB)`);
+        return okTipo && okTam;
+      });
+      if (rechazados.length) {
+        alert('Estos archivos no se pueden adjuntar:\n- ' + rechazados.join('\n- ') + '\n\nSolo se aceptan JPG, PNG, DOCX o PDF de hasta ' + MAX_MB_ARCHIVO + ' MB.');
+      }
+      input._validos = validos;
+      lista.innerHTML = validos.map(f => `<li>📄 ${f.name} <span class="ent-ayuda">(${(f.size / 1024 / 1024).toFixed(1)} MB)</span></li>`).join('');
+    });
+  }
+
   preguntas.forEach(p => {
     if (p.tipo === 'clasificacion') setupClasificacion(p);
+    if (p.tipo === 'archivos') setupArchivos(p);
   });
 
   function recolectarTexto() {
     let texto = `Nombre: ${cont.querySelector('#ent-nombre').value}\nSemana: ${config.semana}\nFecha: ${new Date().toLocaleString()}\n\n`;
     preguntas.forEach((p, idx) => {
-      texto += `${idx + 1}. ${p.texto}\n${cont.querySelector('#ent-' + p.id).value}\n\n`;
+      texto += `${idx + 1}. ${p.texto}\n${cont.querySelector('#ent-' + p.id).value}\n`;
+      if (p.tipo === 'archivos') {
+        const enlace = cont.querySelector('#ent-' + p.id + '-enlace').value.trim();
+        const archivos = cont.querySelector('#ent-' + p.id + '-archivos')._validos || [];
+        if (enlace) texto += `Enlace: ${enlace}\n`;
+        if (archivos.length) texto += `Archivos (adjúntelos al correo): ${archivos.map(f => f.name).join(', ')}\n`;
+      }
+      texto += '\n';
     });
     return texto;
   }
@@ -182,6 +230,15 @@ function IniciarEntrega(config) {
     });
   }
 
+  function leerComoDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const nombre = cont.querySelector('#ent-nombre').value.trim();
@@ -194,12 +251,23 @@ function IniciarEntrega(config) {
       return;
     }
 
+    for (const p of preguntas) {
+      if (p.tipo !== 'archivos') continue;
+      const enlace = cont.querySelector('#ent-' + p.id + '-enlace').value.trim();
+      if (enlace && !/^https?:\/\/\S+$/i.test(enlace)) {
+        alert('El enlace de la pregunta "' + p.texto.substring(0, 60) + '..." no es válido. Debe empezar con http:// o https://');
+        return;
+      }
+    }
+
     btnEnviar.disabled = true;
     btnEnviar.textContent = '⏳ Enviando...';
 
     try {
       const respuestas = {};
       const fotos = {};
+      const nombresArchivo = {};
+      let bytesTotales = 0;
       for (const p of preguntas) {
         respuestas[p.texto] = cont.querySelector('#ent-' + p.id).value.trim();
         if (p.tipo === 'foto') {
@@ -208,9 +276,32 @@ function IniciarEntrega(config) {
             fotos[p.texto] = await comprimirImagen(fileInput.files[0]);
           }
         }
+        if (p.tipo === 'archivos') {
+          const enlace = cont.querySelector('#ent-' + p.id + '-enlace').value.trim();
+          if (enlace) respuestas[p.texto + ' (enlace)'] = enlace;
+          const archivos = cont.querySelector('#ent-' + p.id + '-archivos')._validos || [];
+          for (let i = 0; i < archivos.length; i++) {
+            const f = archivos[i];
+            const ext = extension(f.name);
+            const esImagen = ext === 'jpg' || ext === 'jpeg' || ext === 'png';
+            const dataUrl = esImagen ? await comprimirImagen(f, 1600, 0.8) : await leerComoDataURL(f);
+            bytesTotales += dataUrl.length;
+            // Cada archivo va con su propia clave para que el Web App lo guarde en Drive.
+            const clave = `${p.texto} (archivo ${i + 1})`;
+            fotos[clave] = dataUrl;
+            nombresArchivo[clave] = esImagen ? f.name.replace(/\.[^.]+$/, '') + '.jpg' : f.name;
+          }
+        }
       }
 
-      const payload = { nombre, semana: config.semana, respuestas, fotos };
+      if (bytesTotales > MAX_MB_TOTAL * 1024 * 1024 * 1.37) {
+        alert(`Los archivos adjuntos suman más de ${MAX_MB_TOTAL} MB. Quite algunos, comprima los PDF o comparta un enlace de Drive en su lugar.`);
+        btnEnviar.disabled = false;
+        btnEnviar.textContent = '📤 Enviar mis respuestas';
+        return;
+      }
+
+      const payload = { nombre, semana: config.semana, respuestas, fotos, nombresArchivo };
 
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
@@ -238,6 +329,7 @@ function IniciarEntrega(config) {
      preguntas: [
        { id: "p1", texto: "Enunciado de la pregunta...", tipo: "texto" },
        { id: "p2", texto: "Dibuje su circuito...", tipo: "foto" },   // agrega un campo de foto además del texto
+       { id: "p3", texto: "Entregue su circuito...", tipo: "archivos" }, // texto + enlace + varios archivos (JPG, PNG, DOCX, PDF)
        ...
      ]
    }

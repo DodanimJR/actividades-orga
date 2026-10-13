@@ -17,10 +17,12 @@
   <strong>Instrucciones:</strong> en los ejercicios de simplificación escriba <strong>cada paso</strong> y, al lado,
   el <strong>teorema</strong> que aplicó (DeMorgan, doble negación, distributiva, complemento, identidad, nulidad,
   absorción). Use la notación de clase: <code>·</code> para AND, <code>+</code> para OR y <code>'</code> para NOT.
-  En los ejercicios de circuitos, la forma preferida de entregar es <strong>pegar el enlace para compartir su
-  proyecto de CircuitVerse</strong> (botón "Compartir" o "Share" → "Copiar enlace"); si no tiene cuenta o lo hizo a
-  mano, descríbalo y/o adjunte una foto o captura como respaldo. Escriba su <strong>nombre completo</strong> — es el
-  único dato que se le pide para identificar su entrega.
+  <br><br>
+  <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
+  (por ejemplo, el enlace para compartir su proyecto de CircuitVerse: botón "Compartir" o "Share" → "Copiar enlace")
+  y <strong>uno o varios archivos</strong>: fotos o capturas (JPG o PNG), documentos de Word (DOCX) o PDF, de hasta
+  8 MB cada uno. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su
+  entrega.
 </div>
 
 <div id="app"></div>
@@ -34,19 +36,19 @@
     contenedorId: 'app',
     semana: 'Semana 8',
     preguntas: [
-      { id: 'p3_3_1', tipo: 'texto', texto: 'Ejercicio 3.3.1 — Aplique DeMorgan a la expresión (A·B·C)\' y escriba el resultado.' },
-      { id: 'p3_3_2', tipo: 'texto', texto: 'Ejercicio 3.3.2 — Demuestre con la tabla de verdad que NAND(A,A) es equivalente a NOT A. Escriba las filas de la tabla y explique en una línea por qué son iguales.' },
-      { id: 'p3_3_3', tipo: 'foto', texto: 'Ejercicio 3.3.3 — Diseñe la función F = A + B usando solo compuertas NAND. Indique cuántas compuertas usó y pegue el enlace de CircuitVerse (o adjunte una foto de su diagrama).' },
+      { id: 'p3_3_1', tipo: 'archivos', texto: 'Ejercicio 3.3.1 — Aplique DeMorgan a la expresión (A·B·C)\' y escriba el resultado.' },
+      { id: 'p3_3_2', tipo: 'archivos', texto: 'Ejercicio 3.3.2 — Demuestre con la tabla de verdad que NAND(A,A) es equivalente a NOT A. Escriba las filas de la tabla y explique en una línea por qué son iguales.' },
+      { id: 'p3_3_3', tipo: 'archivos', texto: 'Ejercicio 3.3.3 — Diseñe la función F = A + B usando solo compuertas NAND. Indique cuántas compuertas usó y pegue el enlace de CircuitVerse (o adjunte una foto de su diagrama).' },
 
-      { id: 'practica_1', tipo: 'texto', texto: 'Práctica 1 — Simplifique F = (A\' + B\')\' + A\'·B mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final?' },
-      { id: 'practica_2', tipo: 'texto', texto: 'Práctica 2 — Simplifique F = (A + B)\' + (A\' + B)\' mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final?' },
-      { id: 'practica_3', tipo: 'texto', texto: 'Práctica 3 — Simplifique F = ((A·B)\' + C)\' + A·B·C mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final y por qué desaparece la variable C?' },
-      { id: 'practica_4', tipo: 'foto', texto: 'Práctica 4 — Simplifique F = (A\'·B\'·C)\' · (A + C) mostrando cada paso y el teorema aplicado. Luego grafique en CircuitVerse el circuito ORIGINAL y el SIMPLIFICADO lado a lado (mismos switches A, B, C) y verifique que las lámparas coinciden en las 8 combinaciones. Pegue el enlace del proyecto o adjunte una captura.' },
-      { id: 'practica_5', tipo: 'texto', texto: 'Práctica 5 (reto) — Simplifique F = (A\'·(B + C\'))\' · (A + C\') mostrando cada paso y el teorema aplicado. ¿Cuántas compuertas tenía el circuito original y cuántas necesita el simplificado?' },
+      { id: 'practica_1', tipo: 'archivos', texto: 'Práctica 1 — Simplifique F = (A\' + B\')\' + A\'·B mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final?' },
+      { id: 'practica_2', tipo: 'archivos', texto: 'Práctica 2 — Simplifique F = (A + B)\' + (A\' + B)\' mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final?' },
+      { id: 'practica_3', tipo: 'archivos', texto: 'Práctica 3 — Simplifique F = ((A·B)\' + C)\' + A·B·C mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final y por qué desaparece la variable C?' },
+      { id: 'practica_4', tipo: 'archivos', texto: 'Práctica 4 — Simplifique F = (A\'·B\'·C)\' · (A + C) mostrando cada paso y el teorema aplicado. Luego grafique en CircuitVerse el circuito ORIGINAL y el SIMPLIFICADO lado a lado (mismos switches A, B, C) y verifique que las lámparas coinciden en las 8 combinaciones. Pegue el enlace del proyecto o adjunte capturas.' },
+      { id: 'practica_5', tipo: 'archivos', texto: 'Práctica 5 (reto) — Simplifique F = (A\'·(B + C\'))\' · (A + C\') mostrando cada paso y el teorema aplicado. ¿Cuántas compuertas tenía el circuito original y cuántas necesita el simplificado?' },
 
-      { id: 'lab_nand', tipo: 'foto', texto: 'Laboratorio NAND-universal — Construya en CircuitVerse las compuertas NOT, AND y OR usando únicamente compuertas NAND y verifique la tabla de verdad de cada una. Pegue el enlace para compartir su proyecto (foto como respaldo).' },
+      { id: 'lab_nand', tipo: 'archivos', texto: 'Laboratorio NAND-universal — Construya en CircuitVerse las compuertas NOT, AND y OR usando únicamente compuertas NAND y verifique la tabla de verdad de cada una. Pegue el enlace para compartir su proyecto (foto como respaldo).' },
 
-      { id: 'actividad_resultado', tipo: 'texto', texto: 'Actividad web "Empareja DeMorgan y NAND/NOR" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-08/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-08/index.html</a>): indique cuántos emparejó correctamente (ej. "6/6").' }
+      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Empareja DeMorgan y NAND/NOR" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-08/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-08/index.html</a>): indique cuántos emparejó correctamente (ej. "6/6").' }
     ]
   });
 </script>
