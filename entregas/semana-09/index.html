@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 9 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 9</h1>
+  <p>Organización Computacional (IS-237) — Símbolos estándar IEEE/ANSI e IEC, y autoevaluación de la Unidad 3</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> dibuje los circuitos con los <strong>símbolos estándar</strong> vistos en clase
+  (estilo distintivo IEEE/ANSI y, cuando se pida, estilo rectangular IEC: <code>&amp;</code>, <code>≥1</code>,
+  <code>=1</code>, <code>1</code>). Use la notación de clase: <code>·</code> para AND, <code>+</code> para OR,
+  <code>'</code> para NOT y <code>⊕</code> para XOR.
+  <br><br>
+  <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
+  (por ejemplo, el enlace para compartir su proyecto de CircuitVerse: botón "Compartir" o "Share" → "Copiar enlace")
+  y <strong>uno o varios archivos</strong>: fotos o capturas (JPG o PNG), documentos de Word (DOCX) o PDF, de hasta
+  8 MB cada uno. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su
+  entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Piloto de entregas digitales</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 9',
+    preguntas: [
+      { id: 'p3_4_1', tipo: 'archivos', texto: 'Ejercicio 3.4.1 — Dibuje los símbolos de las 7 compuertas (AND, OR, NOT, NAND, NOR, XOR y XNOR) en estilo distintivo IEEE/ANSI y en estilo rectangular IEC, y compárelos. Adjunte una foto de su tabla de símbolos.' },
+      { id: 'ej_2', tipo: 'archivos', texto: 'Ejercicio 2 — Dibuje con símbolos estándar el circuito de F = (A + B)\'·C. ¿Cuántas compuertas usó? Pegue el enlace de CircuitVerse o adjunte una foto.' },
+      { id: 'ej_3', tipo: 'archivos', texto: 'Ejercicio 3 — Dibuje con símbolos estándar el circuito de F = A⊕B + A·C. ¿Cuántas compuertas usó? Pegue el enlace de CircuitVerse o adjunte una foto.' },
+      { id: 'ej_4', tipo: 'archivos', texto: 'Ejercicio 4 (reto) — Redibuje el resultado de la Práctica 4 de la semana pasada, F = A + B·C, usando únicamente compuertas NAND. Explique el paso de DeMorgan que lo justifica e indique cuántas NAND usó. Pegue el enlace de CircuitVerse o adjunte una foto.' },
+
+      { id: 'a3_1', tipo: 'archivos', texto: 'Autoevaluación A3.1 — Complete la tabla de verdad de una compuerta XOR de 2 entradas.' },
+      { id: 'a3_2', tipo: 'archivos', texto: 'Autoevaluación A3.2 — Simplifique A·(A + B) usando los teoremas booleanos. Escriba cada paso y el teorema aplicado.' },
+      { id: 'a3_3', tipo: 'archivos', texto: 'Autoevaluación A3.3 — Aplique DeMorgan a (A + B + C)\' y escriba el resultado.' },
+      { id: 'a3_4', tipo: 'archivos', texto: 'Autoevaluación A3.4 — Explique por qué se dice que la compuerta NAND es "universal".' },
+      { id: 'a3_5', tipo: 'archivos', texto: 'Autoevaluación A3.5 — Dibuje el símbolo IEEE/ANSI distintivo de una compuerta NOR y adjunte una foto de su dibujo.' },
+
+      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Memorama de Símbolos IEEE/ANSI" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-09/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-09/index.html</a>): indique su tiempo y cuántos pares encontró (puede adjuntar una captura de su resultado).' }
+    ]
+  });
+</script>
+</body>
+</html>
