@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 10 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 10</h1>
+  <p>Organización Computacional (IS-237) — Suma de productos (SOP) y simplificación algebraica</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> para cada función escriba la <strong>tabla de verdad</strong>, la
+  <strong>SOP</strong> (un minitérmino por cada fila donde F = 1) y la <strong>simplificación paso a paso</strong>
+  con el teorema que aplicó al lado. Use la notación de clase: <code>·</code> o nada para AND, <code>+</code> para OR
+  y <code>'</code> para NOT.
+  <br><br>
+  <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
+  (por ejemplo, el enlace para compartir su proyecto de CircuitVerse: botón "Compartir" o "Share" → "Copiar enlace")
+  y <strong>uno o varios archivos</strong>: fotos o capturas (JPG o PNG), documentos de Word (DOCX) o PDF, de hasta
+  8 MB cada uno. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su
+  entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Piloto de entregas digitales</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 10',
+    preguntas: [
+      { id: 'p4_1_1', tipo: 'archivos', texto: 'Ejercicio 4.1.1 — Escriba la tabla de verdad y la expresión SOP de una función G(A,B,C) que vale 1 solo cuando exactamente dos de las tres variables son 1.' },
+      { id: 'p4_1_2', tipo: 'archivos', texto: 'Ejercicio 4.1.2 — Simplifique algebraicamente F = AB + AB\' + A\'B mostrando cada paso y el teorema aplicado. ¿Cuál es la expresión final?' },
+      { id: 'p4_1_3', tipo: 'archivos', texto: 'Ejercicio 4.1.3 — Dibuje con símbolos estándar el circuito AND-OR de la SOP del ejercicio 4.1.1, sin simplificar. ¿Cuántas compuertas usó? Pegue el enlace de CircuitVerse o adjunte una foto.' },
+
+      { id: 'practica_4', tipo: 'archivos', texto: 'Práctica 4 — F = Σm(0, 2, 4, 6). Escriba la tabla de verdad, la SOP y simplifíquela paso a paso. ¿Qué variable decide el valor de F?' },
+      { id: 'practica_5', tipo: 'archivos', texto: 'Práctica 5 (reto) — Una alarma suena cuando al menos dos de sus tres sensores A, B, C se activan. Escriba la tabla de verdad, la SOP, la simplificación paso a paso y arme el circuito simplificado en CircuitVerse. ¿Cuántas compuertas tenía la SOP sin simplificar y cuántas el circuito final? Pegue el enlace del proyecto o adjunte capturas.' },
+
+      { id: 'quiz', tipo: 'archivos', texto: 'Quiz de cierre — Adjunte una foto de su media hoja con las tres respuestas (minitérmino de 011, SOP de la función que vale 1 en 00 y 11, simplificación de A\'B + AB).' },
+
+      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Arma la Expresión SOP" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-10/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-10/index.html</a>): indique su tiempo y cuántos términos acertó, y escriba la expresión simplificada de esa función.' },
+
+      { id: 'crash_course_1', tipo: 'archivos', texto: 'Guía Crash Course CS, Parte 1 (Episodios 3 y 4) — Si no la entregó en papel, adjunte aquí su documento (PDF, DOCX o fotos).' }
+    ]
+  });
+</script>
+</body>
+</html>
