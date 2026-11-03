@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrega Semana 11 — Organización Computacional IS-237</title>
+<link rel="stylesheet" href="../../assets/estilo-base.css">
+<link rel="stylesheet" href="../assets/engine-entrega.css">
+</head>
+<body>
+<header class="cabecera">
+  <h1>📝 Entrega de Ejercicios — Semana 11</h1>
+  <p>Organización Computacional (IS-237) — Mapas de Karnaugh y generador/comprobador de paridad</p>
+</header>
+
+<div class="instrucciones">
+  <strong>Instrucciones:</strong> dibuje cada mapa de Karnaugh con los encabezados en <strong>código Gray</strong>
+  (00, 01, 11, 10), marque los grupos y escriba el término de cada uno. Use la notación de clase: <code>·</code> o
+  nada para AND, <code>+</code> para OR, <code>'</code> para NOT y <code>⊕</code> para XOR. Los laboratorios de
+  CircuitVerse pueden terminarse en casa: pegue el enlace para compartir su proyecto.
+  <br><br>
+  <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
+  (por ejemplo, el enlace para compartir su proyecto de CircuitVerse: botón "Compartir" o "Share" → "Copiar enlace")
+  y <strong>uno o varios archivos</strong>: fotos o capturas (JPG o PNG), documentos de Word (DOCX) o PDF, de hasta
+  8 MB cada uno. Escriba su <strong>nombre completo</strong> — es el único dato que se le pide para identificar su
+  entrega.
+</div>
+
+<div id="app"></div>
+
+<footer class="pie">Organización Computacional IS-237 — Ciclo III-2026 — Piloto de entregas digitales</footer>
+
+<script src="../assets/config.js"></script>
+<script src="../assets/engine-entrega.js"></script>
+<script>
+  IniciarEntrega({
+    contenedorId: 'app',
+    semana: 'Semana 11',
+    preguntas: [
+      { id: 'p4_2_1', tipo: 'archivos', texto: 'Ejercicio 4.2.1 — Construya el mapa de Karnaugh de 4 variables de F = Σm(0, 1, 2, 3, 8, 9, 10, 11), marque los grupos y escriba la expresión simplificada. Adjunte una foto de su mapa.' },
+      { id: 'p4_2_2', tipo: 'archivos', texto: 'Ejercicio 4.2.2 — Simplifique la misma función con álgebra booleana, paso a paso y con el teorema aplicado. ¿Coincide con el resultado del mapa? ¿Cuál método le resultó más rápido y por qué?' },
+
+      { id: 'lab_combinational', tipo: 'archivos', texto: 'Laboratorio 1 — En CircuitVerse use Combinational Analysis con la tabla de verdad del ejercicio 4.2.1 para generar el circuito automáticamente. Compárelo con su diseño por Karnaugh: ¿cuántas compuertas usa cada uno? Pegue el enlace del proyecto o adjunte capturas.' },
+
+      { id: 'lab_paridad', tipo: 'archivos', texto: 'Laboratorio 2 — Diseñe en CircuitVerse un generador de paridad par de 4 bits (A, B, C, D → P) y un comprobador que reciba los 4 bits más P y encienda una alarma E si detecta un error. Indique el bit P para los datos 1011, 0110, 1111 y 0001, y explique qué pasa si cambian dos bits a la vez. Pegue el enlace del proyecto o adjunte capturas.' },
+
+      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Agrupa en el Mapa de Karnaugh" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-11/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-11/index.html</a>): indique su tiempo y cuántos grupos acertó (puede adjuntar una captura).' },
+
+      { id: 'crash_course_2', tipo: 'archivos', texto: 'Guía Crash Course CS, Parte 2 (Episodio 5: la ALU) — Si no la entregó en papel, adjunte aquí su documento (PDF, DOCX o fotos).' }
+    ]
+  });
+</script>
+</body>
+</html>
