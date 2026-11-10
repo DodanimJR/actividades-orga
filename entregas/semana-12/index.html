@@ -16,8 +16,8 @@
 <div class="instrucciones">
   <strong>Instrucciones:</strong> use la notación de clase: <code>·</code> o nada para AND, <code>+</code> para OR y
   <code>'</code> para NOT (un enable activo en bajo se escribe <code>E'</code>). En las tablas de verdad ordene las filas
-  en binario (000, 001, …, 111). Los circuitos de CircuitVerse o Tinkercad pueden terminarse en casa: pegue el enlace
-  para compartir su proyecto.
+  en binario (000, 001, …, 111). Los circuitos de Tinkercad pueden terminarse en casa: en Tinkercad use "Compartir" → "Invitar personas" o
+  "Enviar a" y pegue el enlace, o adjunte capturas de pantalla con la simulación encendida.
   <br><br>
   <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
   (por ejemplo, el enlace para compartir su proyecto de CircuitVerse o Tinkercad) y <strong>uno o varios archivos</strong>:
@@ -36,11 +36,12 @@
     contenedorId: 'app',
     semana: 'Semana 12',
     preguntas: [
-      { id: 'p4_4_1', tipo: 'archivos', texto: 'Ejercicio 4.4.1 — Diseñe un circuito que deje pasar la señal de datos D a la salida Y solo cuando las dos señales de habilitación E1 y E2 estén activas. Escriba la tabla de verdad completa (8 filas), la expresión de Y y dibuje el circuito. Adjunte una foto o pegue el enlace de CircuitVerse.' },
-      { id: 'p4_4_variante', tipo: 'archivos', texto: 'Variante del 4.4.1 — Ahora E2 es activo en bajo (habilita cuando vale 0). Escriba la nueva expresión de Y, indique qué fila de la tabla es la única que da 1 y arme el circuito en CircuitVerse. Pegue el enlace del proyecto o adjunte capturas.' },
-      { id: 'p4_5_ci', tipo: 'archivos', texto: 'Pregunta §4.5 — (a) Una salida del 74LS08 puede absorber 8 mA en bajo y cada entrada LS pide 0,4 mA: ¿cuál es su fan-out? (b) Un camino tiene 6 compuertas de 9 ns cada una: ¿cuánto tarda la salida en ser confiable? (c) Con los niveles del 74LS08 (salida: 1 desde 2,7 V y 0 hasta 0,4 V; entrada: 1 desde 2,0 V y 0 hasta 0,8 V), calcule los márgenes de ruido alto y bajo. (d) Explique en una o dos líneas por qué CMOS consume menos que TTL en reposo.' },
-      { id: 'lab_tinkercad', tipo: 'archivos', texto: 'Laboratorio — Arme en Tinkercad Circuits el circuito Y = D · E1 · E2 con el chip 74HC08, tres interruptores deslizantes y un LED (pin 14 a 5 V y pin 7 a GND). Si su grupo no usará Tinkercad en el proyecto, puede armarlo en CircuitVerse. Pegue el enlace o adjunte una captura con el LED encendido y otra con el LED apagado.' },
-      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Simulador de Enable/Disable" (actividad individual, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-12/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-12/index.html</a>): pruebe el circuito con dos señales de enable y escriba la tabla de 8 filas que observó (Dato, E1, E2 → salida). Puede adjuntar una captura.' }
+      { id: 'p4_4_1', tipo: 'archivos', texto: 'Lab B / Ejercicio 4.4.1 — El dato D pasa al LED solo cuando las dos señales de habilitación E1 y E2 valen 1. Escriba la tabla de verdad completa (8 filas) y la expresión de Y, y arme el circuito en Tinkercad con el 74HC11 (o dos AND del 74HC08). Pegue el enlace de Tinkercad o adjunte capturas y la foto de su tabla.' },
+      { id: 'p4_4_variante', tipo: 'archivos', texto: 'Lab B, variante — Ahora E2 es activo en bajo (habilita cuando vale 0). Escriba la nueva expresión de Y, indique qué fila de la tabla es la única que enciende el LED y agregue el 74HC04 a su circuito. Pegue el enlace o adjunte capturas.' },
+      { id: 'lab_bus', tipo: 'archivos', texto: 'Lab C — Enable para 4 bits: con un interruptor DIP de 4 posiciones (con resistencias de 10 kΩ a GND), un interruptor E y las cuatro AND del 74HC08, haga que cuatro LED copien el dato solo cuando E = 1. Adjunte capturas con el dato 1011 y E = 1, y con E = 0, o pegue el enlace de Tinkercad.' },
+      { id: 'p4_5_ci', tipo: 'archivos', texto: 'Pregunta §4.5 — (a) En el Lab A, ¿qué voltaje midió con el multímetro en la salida del 74HC08 cuando valía 1 y cuando valía 0? (b) Con los niveles del 74LS08 (salida: 1 desde 2,7 V y 0 hasta 0,4 V; entrada: 1 desde 2,0 V y 0 hasta 0,8 V), calcule los márgenes de ruido alto y bajo. (c) Explique en una o dos líneas por qué CMOS consume menos que TTL en reposo.' },
+      { id: 'reto_display', tipo: 'archivos', texto: 'Reto (opcional) — Display de 7 segmentos con el CD4511: muestre un número desde un DIP de 4 bits y pruebe sus controles (BI\' a 0 apaga el display; LE a 1 congela el número). Pegue el enlace de Tinkercad o adjunte capturas.' },
+      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Simulador de Enable/Disable" (para la casa, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-12/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-12/index.html</a>): pruebe el circuito con dos señales de enable y escriba la tabla de 8 filas que observó (Dato, E1, E2 → salida).' }
     ]
   });
 </script>
