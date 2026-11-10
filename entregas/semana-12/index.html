@@ -10,13 +10,12 @@
 <body>
 <header class="cabecera">
   <h1>📝 Entrega de Ejercicios — Semana 12</h1>
-  <p>Organización Computacional (IS-237) — Circuitos de habilitación (enable) y características de los CI digitales</p>
+  <p>Organización Computacional (IS-237) — Compuertas en chips reales con Tinkercad</p>
 </header>
 
 <div class="instrucciones">
-  <strong>Instrucciones:</strong> use la notación de clase: <code>·</code> o nada para AND, <code>+</code> para OR y
-  <code>'</code> para NOT (un enable activo en bajo se escribe <code>E'</code>). En las tablas de verdad ordene las filas
-  en binario (000, 001, …, 111). Los circuitos de Tinkercad pueden terminarse en casa: en Tinkercad use "Compartir" → "Invitar personas" o
+  <strong>Instrucciones:</strong> use la notación de clase: <code>·</code> o nada para AND, <code>+</code> para OR,
+  <code>'</code> para NOT y <code>⊕</code> para XOR. En las tablas de verdad ordene las filas en binario (000, 001, …, 111). Los circuitos de Tinkercad pueden terminarse en casa: en Tinkercad use "Compartir" → "Invitar personas" o
   "Enviar a" y pegue el enlace, o adjunte capturas de pantalla con la simulación encendida.
   <br><br>
   <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
@@ -36,12 +35,11 @@
     contenedorId: 'app',
     semana: 'Semana 12',
     preguntas: [
-      { id: 'p4_4_1', tipo: 'archivos', texto: 'Lab B / Ejercicio 4.4.1 — El dato D pasa al LED solo cuando las dos señales de habilitación E1 y E2 valen 1. Escriba la tabla de verdad completa (8 filas) y la expresión de Y, y arme el circuito en Tinkercad con el 74HC11 (o dos AND del 74HC08). Pegue el enlace de Tinkercad o adjunte capturas y la foto de su tabla.' },
-      { id: 'p4_4_variante', tipo: 'archivos', texto: 'Lab B, variante — Ahora E2 es activo en bajo (habilita cuando vale 0). Escriba la nueva expresión de Y, indique qué fila de la tabla es la única que enciende el LED y agregue el 74HC04 a su circuito. Pegue el enlace o adjunte capturas.' },
-      { id: 'lab_bus', tipo: 'archivos', texto: 'Lab C — Enable para 4 bits: con un interruptor DIP de 4 posiciones (con resistencias de 10 kΩ a GND), un interruptor E y las cuatro AND del 74HC08, haga que cuatro LED copien el dato solo cuando E = 1. Adjunte capturas con el dato 1011 y E = 1, y con E = 0, o pegue el enlace de Tinkercad.' },
-      { id: 'p4_5_ci', tipo: 'archivos', texto: 'Pregunta §4.5 — (a) En el Lab A, ¿qué voltaje midió con el multímetro en la salida del 74HC08 cuando valía 1 y cuando valía 0? (b) Con los niveles del 74LS08 (salida: 1 desde 2,7 V y 0 hasta 0,4 V; entrada: 1 desde 2,0 V y 0 hasta 0,8 V), calcule los márgenes de ruido alto y bajo. (c) Explique en una o dos líneas por qué CMOS consume menos que TTL en reposo.' },
-      { id: 'reto_display', tipo: 'archivos', texto: 'Reto (opcional) — Display de 7 segmentos con el CD4511: muestre un número desde un DIP de 4 bits y pruebe sus controles (BI\' a 0 apaga el display; LE a 1 congela el número). Pegue el enlace de Tinkercad o adjunte capturas.' },
-      { id: 'actividad_resultado', tipo: 'archivos', texto: 'Actividad web "Simulador de Enable/Disable" (para la casa, disponible en <a href="https://dodanimjr.github.io/actividades-orga/semana-12/index.html" target="_blank" rel="noopener">https://dodanimjr.github.io/actividades-orga/semana-12/index.html</a>): pruebe el circuito con dos señales de enable y escriba la tabla de 8 filas que observó (Dato, E1, E2 → salida).' }
+      { id: 'lab1_compuertas', tipo: 'archivos', texto: 'Lab 1 — Las 6 compuertas en Tinkercad: pruebe el 74HC08 (AND), 74HC32 (OR), 74HC00 (NAND), 74HC86 (XOR), 74HC02 (NOR) y 74HC04 (NOT) con dos interruptores y un LED. Escriba la tabla de verdad que observó para cada una (4 filas por compuerta; 2 para la NOT) y adjunte al menos una captura de su banco de prueba con la simulación encendida. Extra: ¿cómo armó la XNOR?' },
+      { id: 'circuito1_mayoria', tipo: 'archivos', texto: 'Circuito 1 — Alarma de mayoría F = AB + AC + BC con el 74HC08 y el 74HC32. ¿En qué combinaciones de A, B, C se enciende el LED? Pegue el enlace de Tinkercad o adjunte capturas (una con el LED encendido y otra apagado).' },
+      { id: 'circuito2_paridad', tipo: 'archivos', texto: 'Circuito 2 — Generador de paridad par P = A ⊕ B ⊕ C con el 74HC86. Indique el valor de P para 000, 101, 110 y 111. Pegue el enlace de Tinkercad o adjunte capturas. (Extra: el comprobador de 4 bits con la tercera XOR.)' },
+      { id: 'circuito3_nand', tipo: 'archivos', texto: 'Circuito 3 — F = A + BC usando solo el 74HC00 (tres NAND) y también con 74HC08 + 74HC32. ¿Coinciden las dos tablas? ¿Cuántos chips usa cada versión? Explique el paso de DeMorgan que justifica la versión con NAND. Pegue el enlace o adjunte capturas.' },
+      { id: 'p4_5_ci', tipo: 'archivos', texto: 'Pregunta §4.5 — (a) Con los niveles del 74LS08 (salida: 1 desde 2,7 V y 0 hasta 0,4 V; entrada: 1 desde 2,0 V y 0 hasta 0,8 V), calcule los márgenes de ruido alto y bajo. (b) Explique en una o dos líneas por qué CMOS consume menos que TTL en reposo. (c) ¿Qué pines alimentan los chips 74HC que usó hoy?' }
     ]
   });
 </script>
