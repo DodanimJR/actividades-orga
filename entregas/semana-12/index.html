@@ -15,8 +15,7 @@
 
 <div class="instrucciones">
   <strong>Instrucciones:</strong> use la notación de clase: <code>·</code> o nada para AND, <code>+</code> para OR,
-  <code>'</code> para NOT y <code>⊕</code> para XOR. En las tablas de verdad ordene las filas en binario (000, 001, …, 111). Los circuitos de Tinkercad pueden terminarse en casa: en Tinkercad use "Compartir" → "Invitar personas" o
-  "Enviar a" y pegue el enlace, o adjunte capturas de pantalla con la simulación encendida.
+  <code>'</code> para NOT y <code>⊕</code> para XOR. En las tablas de verdad ordene las filas en binario (000, 001, …, 111). Esta semana se entregan <strong>3 enlaces de Tinkercad</strong>, uno por circuito. Para obtener el enlace: en su diseño use "Compartir" → "Invitar personas", copie el link y péguelo en el campo de enlace de cada pregunta. Si el enlace no funciona, adjunte capturas con la simulación encendida.
   <br><br>
   <strong>Cada pregunta acepta tres formas de respuesta, combinables:</strong> texto escrito, un <strong>enlace</strong>
   (por ejemplo, el enlace para compartir su proyecto de CircuitVerse o Tinkercad) y <strong>uno o varios archivos</strong>:
@@ -35,11 +34,9 @@
     contenedorId: 'app',
     semana: 'Semana 12',
     preguntas: [
-      { id: 'lab1_compuertas', tipo: 'archivos', texto: 'Lab 1 — Las 6 compuertas en Tinkercad: pruebe el 74HC08 (AND), 74HC32 (OR), 74HC00 (NAND), 74HC86 (XOR), 74HC02 (NOR) y 74HC04 (NOT) con dos interruptores y un LED. Escriba la tabla de verdad que observó para cada una (4 filas por compuerta; 2 para la NOT) y adjunte al menos una captura de su banco de prueba con la simulación encendida. Extra: ¿cómo armó la XNOR?' },
-      { id: 'circuito1_mayoria', tipo: 'archivos', texto: 'Circuito 1 — Alarma de mayoría F = AB + AC + BC con el 74HC08 y el 74HC32. ¿En qué combinaciones de A, B, C se enciende el LED? Pegue el enlace de Tinkercad o adjunte capturas (una con el LED encendido y otra apagado).' },
-      { id: 'circuito2_paridad', tipo: 'archivos', texto: 'Circuito 2 — Generador de paridad par P = A ⊕ B ⊕ C con el 74HC86. Indique el valor de P para 000, 101, 110 y 111. Pegue el enlace de Tinkercad o adjunte capturas. (Extra: el comprobador de 4 bits con la tercera XOR.)' },
-      { id: 'circuito3_nand', tipo: 'archivos', texto: 'Circuito 3 — F = A + BC usando solo el 74HC00 (tres NAND) y también con 74HC08 + 74HC32. ¿Coinciden las dos tablas? ¿Cuántos chips usa cada versión? Explique el paso de DeMorgan que justifica la versión con NAND. Pegue el enlace o adjunte capturas.' },
-      { id: 'p4_5_ci', tipo: 'archivos', texto: 'Pregunta §4.5 — (a) Con los niveles del 74LS08 (salida: 1 desde 2,7 V y 0 hasta 0,4 V; entrada: 1 desde 2,0 V y 0 hasta 0,8 V), calcule los márgenes de ruido alto y bajo. (b) Explique en una o dos líneas por qué CMOS consume menos que TTL en reposo. (c) ¿Qué pines alimentan los chips 74HC que usó hoy?' }
+      { id: 'clase_ac_bd', tipo: 'archivos', texto: 'Circuito 1 — El circuito que armamos juntos en clase: F = AC + BD en Tinkercad. Pegue en el campo de enlace el link de su proyecto de Tinkercad. En el texto escriba qué chips usó y en qué combinaciones de A, B, C, D se enciende el LED (basta con decir cuándo enciende).' },
+      { id: 'circuito_mayoria', tipo: 'archivos', texto: 'Circuito 2 — Alarma de mayoría F = AB + AC + BC con el 74HC08 y el 74HC32. Pegue el link de su proyecto de Tinkercad. En el texto indique en qué combinaciones de A, B, C se enciende el LED.' },
+      { id: 'circuito_paridad', tipo: 'archivos', texto: 'Circuito 3 — Generador de paridad par P = A ⊕ B ⊕ C con el 74HC86. Pegue el link de su proyecto de Tinkercad. En el texto indique el valor de P para 000, 101, 110 y 111.' }
     ]
   });
 </script>
